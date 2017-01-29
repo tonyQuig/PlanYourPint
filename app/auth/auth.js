@@ -10,28 +10,14 @@ angular.module("pyp.auth", ['ngRoute', 'firebase'])
     });
 }])
 
-.controller('AuthCtrl', ['$scope', '$firebaseAuth', 'authService', '$location', function ($scope, $firebaseAuth, authService, $location) {
+.controller('AuthCtrl', ['$scope', '$firebaseAuth', 'AuthService', '$location', function ($scope, $firebaseAuth, AuthService, $location) {
+
+    $scope.authObj = $firebaseAuth();
 
     $scope.login = function (provider) {
         console.log('Provider selected: ', provider);
-        authService.$signInWithPopup(provider)
-            .then(function (result) {
-                $location.path('/citySelection');
-            }).catch(function (error) {
-                console.error('Authentication failed: ', error);
-            })
+        AuthService.signIn(provider);
+
     }
-
-    //Observer object consoles current user.
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            console.log('User has signed in: ', user);
-        } else {
-            console.log('User has not signed in.');
-        }
-    });
-    
-
-
 
 }]);

@@ -6,7 +6,8 @@
                 <div class="header-content">
                     <div class="header-content-inner">
                         <h1>We organise, optimize and personalize the planning of nights-out. Click below to start your journey!</h1>
-                        <a href="#/auth" class="btn btn-outline btn-xl page-scroll">Start Now!</a>
+                        <a ng-show="!isAuth" href="#/auth" class="btn btn-outline btn-xl page-scroll">Sign In!</a>
+                        <a ng-show="isAuth" href="#/citySelection" class="btn btn-outline btn-xl page-scroll">Start Now!</a>
                     </div>
                 </div>
             </div>
