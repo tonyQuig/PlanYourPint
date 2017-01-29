@@ -16,7 +16,6 @@ angular.module("pyp.auth")
             });
         }
 
-
         var signIn = function (provider) {
             console.log('Inside signIn function');
             $firebaseAuth().$signInWithPopup(provider).then(function (result) {
