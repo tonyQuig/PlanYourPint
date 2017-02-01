@@ -1,35 +1,30 @@
-<!--
-<h2>{{name}}</h2>
-
-<h2>{{uid}}</h2>
-<h2>{{email}}</h2>
-<h2>{{emailVerified}}</h2>-->
-
-<header>
+<div class="content-container">
     <div class="container">
-        <div class="row">
+        <div class="row space-bottom">
             <div class="col-xs-6">
-                <div class="header-content">
-                    <div class="header-content-inner">
-                        <h1>Planning a night out in... </h1>
-                        <select class="styled-select slate" ng-model="citySelection" ng-change="onCityChange(citySelection)">
-                            <option ng-repeat="city in cities" value="{{city.name}}" ng-disabled="city.disabled">{{city.name}}</option>
-                        </select>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="header-content">
-                    <div class="header-content-inner">
-                        <h1>Going out with... </h1>
-                        <select class="styled-select slate" ng-model="numFriends" ng-change="onNumFriendsChange(numFriends)">
-                            <option ng-repeat="num in numFriends" ng-disabled="num.disabled" value="{{num.name}}">{{num.name}}</option>
-                        </select>
-                        <h1>friends.</h1>
-                    </div>
-                </div>
+                <h1>Planning a night out in...</h1>
+                <select class="styled-select slate" ng-model="citySelection" ng-change="onCityChange(citySelection)">
+                    <option ng-repeat="city in cities" value="{{city.name}}" ng-disabled="city.disabled">{{city.name}}</option>
+                </select>
             </div>
         </div>
     </div>
-</header>
+    <div class="container">
+        <div class="row space-bottom">
+            <div class="col-xs-6">
+                <h1>With this many people...</h1>
+                <select class="styled-select slate" ng-model="friendsNum" ng-change="onNumFriendsChange(friendsNum)">
+                    <option ng-repeat="num in numFriends" value="{{num.name}}" ng-disabled="num.disabled">{{num.name}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class=".col-xs-6 .col-sm-4">
+                <a ng-show="continueVisibility" href="#/preferenceSelection" class="btn btn-outline btn-xl page-scroll">Continue!</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--</header>-->

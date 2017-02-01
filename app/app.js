@@ -6,6 +6,7 @@ angular.module('pyp', [
     'pyp.citySelection',
     'pyp.home',
     'pyp.auth',
+    'pyp.preferenceSelection',
 ])
     .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
 

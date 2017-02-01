@@ -1,0 +1,26 @@
+{
+  "bars": {
+    "belfast": {
+      "hudson": {
+        "ageRange": "4",
+        "atomsphere": "2",
+        "dressCode": "1",
+        "drinkType": "3",
+        "foodOptions": "1",
+        "price": "2",
+        "latitude": "-5.932",
+        "longitude": "54.60183"
+      },
+      "dukeOfYork": {
+        "ageRange": "4",
+        "atomsphere": "2",
+        "dressCode": "1",
+        "drinkType": "3",
+        "foodOptions": "1",
+        "price": "2",
+        "latitude": "-5.932",
+        "longitude": "54.60183"
+      }
+    }
+  }
+}

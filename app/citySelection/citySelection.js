@@ -22,12 +22,25 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase'])
         $scope.emailVerified = user.emailVerified;
     }
 
+    function continueButtonVisibility() {
+
+        $scope.continueVisibility = false;
+
+        if ($scope.citySelection != null && $scope.friendsNum != null) {
+            console.log("Dropdowns are populated!");
+            $scope.continueVisibility = true;
+        } else {
+            console.error("Dropdowns are not populated!");
+        }
+
+    }
+
     $scope.onCityChange = function () {
-        console.log('City selection: ', $scope.citySelection);
+        continueButtonVisibility();
     }
 
     $scope.onNumFriendsChange = function () {
-        console.log('Number of friends has changed to: ', $scope.numFriends);
+        continueButtonVisibility();
     }
 
     $scope.cities = [
@@ -57,19 +70,23 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase'])
     $scope.numFriends = [
         {
             id: 0,
-            name: "Select number of friends..."
+            name: "Select number of friends...",
+            disabled: true
         },
         {
             id: 1,
-            name: "1"
+            name: "1",
+            disabled: false
         },
         {
             id: 2,
-            name: "2"
+            name: "2",
+            disabled: false
         },
         {
             id: 3,
-            name: "3"
+            name: "3",
+            disabled: false
         }
     ];
 
