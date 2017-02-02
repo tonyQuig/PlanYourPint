@@ -52,3 +52,9 @@ body {
 .space-bottom {
     padding-bottom: 5%;
 }
+
+.preferenceBoxes select {
+    color: black;
+    height 10em;
+    width: 100%;
+}
