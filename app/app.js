@@ -7,10 +7,13 @@ angular.module('pyp', [
     'pyp.home',
     'pyp.auth',
     'pyp.preferenceSelection',
+    'pyp.mapPlotting',
+    'pyp.firebase_interactions',
 ])
     .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
 
-        $routeProvider.otherwise({
-            redirectTo: '/home'
-        });
-}]);
+            $routeProvider.otherwise({
+                redirectTo: '/home'
+            });
+}
+            ]);
