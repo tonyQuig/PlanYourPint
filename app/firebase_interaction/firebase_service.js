@@ -23,6 +23,7 @@ angular.module("pyp.firebase_interactions", [])
             console.log('Number of friends set to: ', friends);
         }
 
+        //Returns list of bars depending on user selected location.
         this.getBarInfo = function () {
 
             database.ref('/bars/' + location).once('value').then(function (response) {
