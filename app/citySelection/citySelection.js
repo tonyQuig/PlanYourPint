@@ -9,7 +9,7 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase'])
     });
 }])
 
-.controller('CitySelectionCtrl', ['$scope', function ($scope) {
+.controller('CitySelectionCtrl', ['$scope', 'FirebaseService', function ($scope, FirebaseService) {
 
     var user = firebase.auth().currentUser;
     console.log('User info: ', user);
@@ -37,10 +37,12 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase'])
 
     $scope.onCityChange = function () {
         continueButtonVisibility();
+        FirebaseService.setLocation($scope.citySelection);
     }
 
     $scope.onNumFriendsChange = function () {
         continueButtonVisibility();
+        FirebaseService.setNumFriends($scope.friendsNum);
     }
 
     $scope.cities = [

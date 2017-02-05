@@ -20,13 +20,4 @@ angular.module('pyp.home', ['ngRoute', 'firebase'])
         }
     });
 
-    var database = firebase.database().ref();
-
-    database.on("value", function (snapshot) {
-        console.log("Database values: ", snapshot.val());
-    }, function (error) {
-        console.log('Error: ', error);
-    })
-
-
 }]);

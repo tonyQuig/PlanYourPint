@@ -12,32 +12,26 @@ angular.module('pyp.preferenceSelection', ['ngRoute', 'firebase'])
 .controller('PreferenceSelectionCtrl', ['$scope', function ($scope) {
 
     $scope.onPriceChange = function () {
-        console.log('Price change: ', $scope.price);
         preferenceContinueButton();
     }
 
     $scope.onFoodChange = function () {
-        console.log('Food change: ', $scope.food);
         preferenceContinueButton();
     }
 
     $scope.onDrinkChange = function () {
-        console.log('Drink change: ', $scope.drinkType);
         preferenceContinueButton();
     }
 
     $scope.onAtmosphereChange = function () {
-        console.log('Atmosphere change: ', $scope.atmosphere);
         preferenceContinueButton();
     }
 
     $scope.onAgeRangeChange = function () {
-        console.log('Age Range change: ', $scope.ageRange);
         preferenceContinueButton();
     }
 
     $scope.onDressCodeChange = function () {
-        console.log('Dress Code change: ', $scope.dressCode);
         preferenceContinueButton();
     }
 
@@ -51,7 +45,9 @@ angular.module('pyp.preferenceSelection', ['ngRoute', 'firebase'])
             $scope.ageRange != null &&
             $scope.dressCode != null) {
 
-            console.log('Inside Preference button');
+            var totalPreference = parseInt($scope.price) + parseInt($scope.food) + parseInt($scope.drinkType) + parseInt($scope.atmosphere) + parseInt($scope.ageRange) + parseInt($scope.dressCode);
+
+            console.log('Average total: ', totalPreference);
             $scope.preferenceContinueButton = true;
         }
     }

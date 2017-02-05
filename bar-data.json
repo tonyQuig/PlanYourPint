@@ -1,26 +1,106 @@
 {
-  "bars": {
-    "belfast": {
-      "hudson": {
-        "ageRange": "4",
-        "atomsphere": "2",
-        "dressCode": "1",
-        "drinkType": "3",
-        "foodOptions": "1",
-        "price": "2",
-        "latitude": "-5.932",
-        "longitude": "54.60183"
-      },
-      "dukeOfYork": {
-        "ageRange": "4",
-        "atomsphere": "2",
-        "dressCode": "1",
-        "drinkType": "3",
-        "foodOptions": "1",
-        "price": "2",
-        "latitude": "-5.932",
-        "longitude": "54.60183"
-      }
+    "bars": {
+        "Belfast": {
+            "hudson": {
+                "ageRange": "4",
+                "atomsphere": "2",
+                "dressCode": "1",
+                "drinkType": "3",
+                "foodOptions": "1",
+                "price": "2",
+                "latitude": "-5.932",
+                "longitude": "54.60183"
+            },
+            "dukeOfYork": {
+                "ageRange": "4",
+                "atomsphere": "2",
+                "dressCode": "1",
+                "drinkType": "3",
+                "foodOptions": "1",
+                "price": "2",
+                "latitude": "-5.932",
+                "longitude": "54.60183"
+            },
+            "garrick": {
+                "ageRange": "4",
+                "atomsphere": "2",
+                "dressCode": "1",
+                "drinkType": "3",
+                "foodOptions": "1",
+                "price": "2",
+                "latitude": "-5.926575",
+                "longitude": "54.597369"
+            },
+            "mcckrackens": {
+                "ageRange": "4",
+                "atomsphere": "2",
+                "dressCode": "1",
+                "drinkType": "3",
+                "foodOptions": "1",
+                "price": "2",
+                "latitude": "-5.926832",
+                "longitude": "54.599526"
+            },
+            "themorningstar": {
+                "ageRange": "4",
+                "atomsphere": "2",
+                "dressCode": "1",
+                "drinkType": "3",
+                "foodOptions": "1",
+                "price": "2",
+                "latitude": "-5.926349",
+                "longitude": "54.599427"
+            },
+            "thespanaird": {
+                "ageRange": "4",
+                "atomsphere": "2",
+                "dressCode": "1",
+                "drinkType": "3",
+                "foodOptions": "1",
+                "price": "2",
+                "latitude": "-5.926274",
+                "longitude": "54.600931"
+            },
+            "thenorthernwhig": {
+                "ageRange": "4",
+                "atomsphere": "2",
+                "dressCode": "1",
+                "drinkType": "3",
+                "foodOptions": "1",
+                "price": "2",
+                "latitude": "-5.927717",
+                "longitude": "54.600549"
+            },
+            "whitestavern": {
+                "ageRange": "4",
+                "atomsphere": "2",
+                "dressCode": "1",
+                "drinkType": "3",
+                "foodOptions": "1",
+                "price": "2",
+                "latitude": "-5.928409",
+                "longitude": "54.600061"
+            },
+            "aether&echo": {
+                "ageRange": "4",
+                "atomsphere": "2",
+                "dressCode": "1",
+                "drinkType": "3",
+                "foodOptions": "1",
+                "price": "2",
+                "latitude": "-5.930249",
+                "longitude": "54.601447"
+            },
+            "thesunflower": {
+                "ageRange": "4",
+                "atomsphere": "2",
+                "dressCode": "1",
+                "drinkType": "3",
+                "foodOptions": "1",
+                "price": "2",
+                "latitude": "-5.932673",
+                "longitude": "54.603073"
+            }
+        }
     }
-  }
 }
