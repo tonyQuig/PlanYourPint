@@ -1,48 +1,53 @@
-<div class="content-container">
-    <div class="container preferenceBoxes">
-        <h1>Please select from the preferences below...</h1>
+<div class="content-container preferenceSelection-content">
+    <div class="container preferenceBoxes fadedBackground space-all-around">
+        <h1>What do you fancy?</h1>
         <div class="row space-bottom">
-            <div class="col-sm-4">
-                <h3>Price</h3>
-                <select ng-model="price" multiple ng-change="onPriceChange(price)">
-                    <option ng-repeat="price in priceOptions" value="{{price.id}}">{{price.name}}</option>
-                </select>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>Price</h3>
+                    <select ng-model="price" multiple ng-change="onPriceChange(price)">
+                        <option ng-repeat="price in priceOptions" value="{{price.id}}">{{price.name}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Food Options</h3>
+                    <select ng-model="food" multiple ng-change="onFoodChange(food)">
+                        <option ng-repeat="food in foodOptions" value="{{food.id}}">{{food.name}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Drink Type</h3>
+                    <select ng-model="drinkType" multiple ng-change="onDrinkChange(drinkType)">
+                        <option ng-repeat="drink in drinkOptions" value="{{drink.id}}">{{drink.name}}</option>
+                    </select>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <h3>Food Options</h3>
-                <select ng-model="food" multiple ng-change="onFoodChange(food)">
-                    <option ng-repeat="food in foodOptions" value="{{food.id}}">{{food.name}}</option>
-                </select>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>Atmosphere</h3>
+                    <select ng-model="atmosphere" multiple ng-change="onAtmosphereChange(atmosphere)">
+                        <option ng-repeat="atmosphere in atmosphereOptions" value="{{atmosphere.id}}">{{atmosphere.name}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Age Range</h3>
+                    <select ng-model="ageRange" multiple ng-change="onAgeRangeChange(ageRange)">
+                        <option ng-repeat="age in ageOptions" value="{{age.id}}">{{age.name}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Dress Code</h3>
+                    <select ng-model="dressCode" multiple ng-change="onDressCodeChange(dressCode)">
+                        <option ng-repeat="code in dressCodeOptions" value="{{code.id}}">{{code.name}}</option>
+                    </select>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <h3>Drink Type</h3>
-                <select ng-model="drinkType" multiple ng-change="onDrinkChange(drinkType)">
-                    <option ng-repeat="drink in drinkOptions" value="{{drink.id}}">{{drink.name}}</option>
-                </select>
+            <div class="row center-text space-top">
+                <div class=".col-xs-6 .col-sm-4">
+                    <a ng-show="preferenceContinueButton" href="#/mapPlotting" class="btn btn-outline btn-xl page-scroll">Continue!</a>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <h3>Atmosphere</h3>
-                <select ng-model="atmosphere" multiple ng-change="onAtmosphereChange(atmosphere)">
-                    <option ng-repeat="atmosphere in atmosphereOptions" value="{{atmosphere.id}}">{{atmosphere.name}}</option>
-                </select>
-            </div>
-            <div class="col-sm-4">
-                <h3>Age Range</h3>
-                <select ng-model="ageRange" multiple ng-change="onAgeRangeChange(ageRange)">
-                    <option ng-repeat="age in ageOptions" value="{{age.id}}">{{age.name}}</option>
-                </select>
-            </div>
-            <div class="col-sm-4">
-                <h3>Dress Code</h3>
-                <select ng-model="dressCode" multiple ng-change="onDressCodeChange(dressCode)">
-                    <option ng-repeat="code in dressCodeOptions" value="{{code.id}}">{{code.name}}</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class=".col-xs-6 .col-sm-4">
-            <a ng-show="preferenceContinueButton" href="#/mapPlotting" class="btn btn-outline btn-xl page-scroll">Continue!</a>
         </div>
     </div>
 </div>

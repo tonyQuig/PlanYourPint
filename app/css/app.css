@@ -17,6 +17,10 @@ body {
     overflow-y: hidden;
 }
 
+.logo {
+    height: 150%;
+}
+
 .home-content {
     background: url("../images/home_page_cheers.jpg");
     background: url("../images/home_page_cheers.jpg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
@@ -33,6 +37,12 @@ body {
     background: url("../images/city_selection_map_overview.jpeg");
     background: url("../images/city_selection_map_overview.jpeg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
     background: url("../images/city_selection_map_overview.jpeg"), linear-gradient(to left, #4d88ff, #00b38f);
+}
+
+.preferenceSelection-content {
+    background: url("../images/preference_selection_drink_options.jpeg");
+    background: url("../images/preference_selection_drink_options.jpeg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
+    background: url("../images/preference_selection_drink_options.jpeg"), linear-gradient(to left, #4d88ff, #00b38f);
 }
 
 .center-text {
@@ -80,8 +90,14 @@ body {
     padding-top: 5%;
 }
 
+.space-all-around {
+    padding: 2%;
+}
+
 .preferenceBoxes select {
     color: black;
     height 10em;
     width: 100%;
+    padding: 5px 8px;
+    /*    overflow: hidden;*/
 }
