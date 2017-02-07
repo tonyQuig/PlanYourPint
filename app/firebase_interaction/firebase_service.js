@@ -5,6 +5,8 @@ angular.module("pyp.firebase_interactions", [])
 
         var location = "";
         var friends = 0;
+        var barInfo = {};
+        var that = this;
 
         var databaseRef = firebase.database().ref();
         var database = firebase.database();
@@ -15,21 +17,35 @@ angular.module("pyp.firebase_interactions", [])
 
         this.setLocation = function (newLocation) {
             location = newLocation;
-            console.log('Location set to: ', location);
         }
 
         this.setNumFriends = function (numFriends) {
             friends = numFriends;
-            console.log('Number of friends set to: ', friends);
         }
 
-        //Returns list of bars depending on user selected location.
-        this.getBarInfo = function () {
+        this.setBarInfo = function (bars) {
 
-            database.ref('/bars/' + location).once('value').then(function (response) {
-                console.log('Bars in ', location);
-                console.log(response.val());
-            })
+            barInfo = bars;
+            console.log('Bar information: ', barInfo);
         }
+
+        database.ref('/bars/' + location).once('value').then(function (response) {
+            //            barInfo = response.val();
+            that.setBarInfo(response.val());
+
+        })
+
+        //        //Returns list of bars depending on user selected location.
+        //        this.getBarInfo = function () {
+        //
+        //            var temp = {};
+        //
+        //
+        //            this.setBarInfo(temp);
+        //        }
+
+
+
+        //        this.getBarInfo();
 
     })
