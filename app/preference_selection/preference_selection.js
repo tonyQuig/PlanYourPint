@@ -45,11 +45,16 @@ angular.module('pyp.preferenceSelection', ['ngRoute', 'firebase'])
             $scope.ageRange != null &&
             $scope.dressCode != null) {
 
-            var totalPreference = parseInt($scope.price) + parseInt($scope.food) + parseInt($scope.drinkType) + parseInt($scope.atmosphere) + parseInt($scope.ageRange) + parseInt($scope.dressCode);
-
-            console.log('Average total: ', totalPreference);
+            getPreferenceTotal();
             $scope.preferenceContinueButton = true;
         }
+    }
+
+    function getPreferenceTotal() {
+
+        var totalPreference = parseInt($scope.price) + parseInt($scope.food) + parseInt($scope.drinkType) + parseInt($scope.atmosphere) + parseInt($scope.ageRange) + parseInt($scope.dressCode);
+
+        console.log('Average total: ', totalPreference);
     }
 
     $scope.priceOptions = [

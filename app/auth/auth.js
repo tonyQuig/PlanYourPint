@@ -15,7 +15,6 @@ angular.module("pyp.auth", ['ngRoute', 'firebase'])
     $scope.authObj = $firebaseAuth();
 
     $scope.login = function (provider) {
-        console.log('Provider selected: ', provider);
         AuthService.signIn(provider);
 
     }

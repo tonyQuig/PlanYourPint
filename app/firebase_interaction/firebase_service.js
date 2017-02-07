@@ -26,7 +26,7 @@ angular.module("pyp.firebase_interactions", [])
         this.setBarInfo = function (bars) {
 
             barInfo = bars;
-            console.log('Bar information: ', barInfo);
+            this.getTotalBarValues(barInfo);
         }
 
         database.ref('/bars/' + location).once('value').then(function (response) {
@@ -35,17 +35,31 @@ angular.module("pyp.firebase_interactions", [])
 
         })
 
-        //        //Returns list of bars depending on user selected location.
-        //        this.getBarInfo = function () {
-        //
-        //            var temp = {};
-        //
-        //
-        //            this.setBarInfo(temp);
-        //        }
+        this.getTotalBarValues = function (allBars) {
 
+            //Iterate through each bar
+            angular.forEach(allBars, function (bar, index) {
 
+                //Iterate through information of each bar
+                angular.forEach(bar, function (barInfo, index) {
+                    console.log('Individual bar info: ', barInfo);
 
-        //        this.getBarInfo();
+                    var barTotal = 0;
 
+                    var age = parseInt(barInfo.ageRange);
+                    var atmos = parseInt(barInfo.atomsphere);
+                    var dress = parseInt(barInfo.dressCode);
+                    var drink = parseInt(barInfo.drinkType);
+                    var food = parseInt(barInfo.foodOptions);
+                    var food = parseInt(barInfo.foodOptions);
+
+                    var barArray = [age, atmos, dress, drink, food];
+
+                    for (var index = 0; index < barArray.length; index++) {
+                        barTotal += barArray[index];
+                    }
+                    console.log('Bar total: ', barTotal);
+                })
+            });
+        }
     })
