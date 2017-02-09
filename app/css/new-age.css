@@ -169,7 +169,7 @@ header {
     position: relative;
     width: 100%;
     min-height: auto;
-    overflow-y: hidden;
+    /*    overflow-y: hidden;*/
     background: url("../images/bg-pattern.png");
     /* fallback for old browsers */
     background: url("../images/bg-pattern.png"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);

@@ -11,26 +11,17 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase'])
 
 .controller('CitySelectionCtrl', ['$scope', 'FirebaseService', function ($scope, FirebaseService) {
 
+    //Current user information
     var user = firebase.auth().currentUser;
     console.log('User info: ', user);
 
-    if (user != null) {
-        $scope.name = user.displayName;
-        $scope.email = user.email;
-        $scope.photoUrl = user.photoUrl;
-        $scope.uid = user.uid;
-        $scope.emailVerified = user.emailVerified;
-    }
-
+    //Sets visibility of continue button.
     function continueButtonVisibility() {
 
         $scope.continueVisibility = false;
 
         if ($scope.citySelection != null && $scope.friendsNum != null) {
-            console.log("Dropdowns are populated!");
             $scope.continueVisibility = true;
-        } else {
-            console.error("Dropdowns are not populated!");
         }
 
     }

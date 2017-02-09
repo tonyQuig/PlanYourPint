@@ -9,7 +9,7 @@ angular.module('pyp.preferenceSelection', ['ngRoute', 'firebase'])
     });
 }])
 
-.controller('PreferenceSelectionCtrl', ['$scope', function ($scope) {
+.controller('PreferenceSelectionCtrl', ['$scope', 'FirebaseService', function ($scope, FirebaseService) {
 
     $scope.onPriceChange = function () {
         preferenceContinueButton();
@@ -47,12 +47,15 @@ angular.module('pyp.preferenceSelection', ['ngRoute', 'firebase'])
 
             getPreferenceTotal();
             $scope.preferenceContinueButton = true;
+            FirebaseService.getBarInfo();
         }
     }
 
     function getPreferenceTotal() {
 
         var totalPreference = parseInt($scope.price) + parseInt($scope.food) + parseInt($scope.drinkType) + parseInt($scope.atmosphere) + parseInt($scope.ageRange) + parseInt($scope.dressCode);
+
+        FirebaseService.setPreference(totalPreference);
 
         console.log('Average total: ', totalPreference);
     }

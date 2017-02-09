@@ -1,103 +1,110 @@
-/* app css stylesheet */
-
-body {
-    /*    padding-top: 10%;*/
-}
-
-.content-container {
-    padding-top: 10%;
-    position: fixed;
-    /*    padding: 0;*/
-    margin: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: white;
-    overflow-y: hidden;
-}
-
-.logo {
-    height: 150%;
-}
-
-.home-content {
-    background: url("../images/home_page_cheers.jpg");
-    background: url("../images/home_page_cheers.jpg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
-    background: url("../images/home_page_cheers.jpg"), linear-gradient(to left, #4d88ff, #00b38f);
-}
-
-.signIn-content {
-    background: url("../images/sign_in_crowded_bar.jpg");
-    background: url("../images/sign_in_crowded_bar.jpg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
-    background: url("../images/sign_in_crowded_bar.jpg"), linear-gradient(to left, #4d88ff, #00b38f);
-}
-
-.citySelection-content {
-    background: url("../images/city_selection_map_overview.jpeg");
-    background: url("../images/city_selection_map_overview.jpeg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
-    background: url("../images/city_selection_map_overview.jpeg"), linear-gradient(to left, #4d88ff, #00b38f);
-}
-
-.preferenceSelection-content {
-    background: url("../images/preference_selection_drink_options.jpeg");
-    background: url("../images/preference_selection_drink_options.jpeg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
-    background: url("../images/preference_selection_drink_options.jpeg"), linear-gradient(to left, #4d88ff, #00b38f);
-}
-
-.center-text {
-    text-align: center;
-}
-
-.fadedBackground {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.styled-select {
-    color: black;
-    height: 29px;
-    overflow: hidden;
-    width: 240px;
-}
-
-.styled-select select {
-    background: transparent;
-    border: none;
-    font-size: 14px;
-    height: 29px;
-    padding: 5px;
-    /* If you add too much padding here, the options won't show in IE */
-    width: 268px;
-}
-
-.styled-select.slate {
-    height: 34px;
-    width: 240px;
-}
-
-.styled-select.slate select {
-    border: 1px solid #ccc;
-    font-size: 16px;
-    height: 34px;
-    width: 268px;
-}
-
-.space-bottom {
-    padding-bottom: 5%;
-}
-
-.space-top {
-    padding-top: 5%;
-}
-
-.space-all-around {
-    padding: 2%;
-}
-
-.preferenceBoxes select {
-    color: black;
-    height 10em;
-    width: 100%;
-    padding: 5px 8px;
-    /*    overflow: hidden;*/
-}
+    /* app css stylesheet */
+    
+    body {
+        /*    padding-top: 10%;*/
+    }
+    
+    .content-container {
+        padding-top: 10%;
+        /* Set rules to fill background */
+        min-height: 100%;
+        /*    min-width: 1024px;*/
+        /* Set up proportionate scaling */
+        width: 100%;
+        height: auto;
+        /* Set up positioning */
+        position: fixed;
+        top: 0;
+        left: 0;
+        color: white;
+    }
+    
+    @media screen and (max-width: 1024px) {
+        content-container {
+            left: 50%;
+            margin-left: -512px;
+        }
+    }
+    
+    .logo {
+        height: 150%;
+    }
+    
+    .home-content {
+        background: url("../images/home_page_cheers.jpg");
+        background: url("../images/home_page_cheers.jpg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
+        background: url("../images/home_page_cheers.jpg"), linear-gradient(to left, #4d88ff, #00b38f);
+    }
+    
+    .signIn-content {
+        background: url("../images/sign_in_crowded_bar.jpg");
+        background: url("../images/sign_in_crowded_bar.jpg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
+        background: url("../images/sign_in_crowded_bar.jpg"), linear-gradient(to left, #4d88ff, #00b38f);
+    }
+    
+    .citySelection-content {
+        background: url("../images/city_selection_map_overview.jpeg");
+        background: url("../images/city_selection_map_overview.jpeg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
+        background: url("../images/city_selection_map_overview.jpeg"), linear-gradient(to left, #4d88ff, #00b38f);
+    }
+    
+    .preferenceSelection-content {
+        background: url("../images/preference_selection_drink_options.jpeg");
+        background: url("../images/preference_selection_drink_options.jpeg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
+        background: url("../images/preference_selection_drink_options.jpeg"), linear-gradient(to left, #4d88ff, #00b38f);
+    }
+    
+    .center-text {
+        text-align: center;
+    }
+    
+    .fadedBackground {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    
+    .styled-select {
+        color: black;
+        height: 29px;
+        /*    overflow: hidden;*/
+        width: 240px;
+    }
+    
+    .styled-select select {
+        background: transparent;
+        border: none;
+        font-size: 14px;
+        height: 29px;
+        padding: 5px;
+        /* If you add too much padding here, the options won't show in IE */
+        width: 268px;
+    }
+    
+    .styled-select.slate {
+        height: 34px;
+        width: 240px;
+    }
+    
+    .styled-select.slate select {
+        border: 1px solid #ccc;
+        font-size: 16px;
+        height: 34px;
+        width: 268px;
+    }
+    
+    .space-bottom {
+        padding-bottom: 5%;
+    }
+    
+    .space-top {
+        padding-top: 5%;
+    }
+    
+    .space-all-around {
+        padding: 2%;
+    }
+    
+    .preferenceBoxes select {
+        color: black;
+        width: 100%;
+        padding: 5px 8px;
+    }

@@ -1,6 +1,6 @@
 <div class="content-container citySelection-content">
     <div class="container">
-        <div class="row space-bottom space-top fadedBackground center-text">
+        <div class="row space-bottom space-top fadedBackground">
             <div class="col-xs-6">
                 <h1>Planning a night out in...</h1>
                 <select class="styled-select slate" ng-model="citySelection" ng-change="onCityChange(citySelection)">
@@ -10,18 +10,14 @@
         </div>
     </div>
     <div class="container">
-        <div class="row space-bottom fadedBackground center-text">
+        <div class="row space-bottom fadedBackground">
             <div class="col-xs-6">
                 <h1>With this many people...</h1>
                 <select class="styled-select slate" ng-model="friendsNum" ng-change="onNumFriendsChange(friendsNum)">
                     <option ng-repeat="num in numFriends" value="{{num.name}}" ng-disabled="num.disabled">{{num.name}}</option>
                 </select>
             </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class=".col-xs-6 .col-sm-4">
+            <div class=".col-xs-6">
                 <a ng-show="continueVisibility" href="#/preferenceSelection" class="btn btn-outline btn-xl page-scroll">Continue!</a>
             </div>
         </div>
