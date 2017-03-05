@@ -68,29 +68,31 @@ angular.module("pyp.firebase_interactions", [])
                 var dress = parseInt(barInfo.dressCode);
                 var drink = parseInt(barInfo.drinkType);
                 var food = parseInt(barInfo.foodOptions);
-                var food = parseInt(barInfo.foodOptions);
                 var name = barInfo.name;
 
                 var barArray = [age, atmos, dress, drink, food];
 
                 for (var index = 0; index < barArray.length; index++) {
                     barTotal += barArray[index];
-                }
-
-                //                console.log('Bar total: ', barTotal);
-                //                console.log('Preference total: ', preferenceTotal);
+                };
 
                 if (barTotal == preferenceTotal) {
-                    console.log('MATCH FOUND!: ', name);
+                    console.log('MATCH FOUND!: ', barInfo);
+                    that.orderLocations(barInfo.longitude, barInfo.latitude);
                 } else {
 
                 };
             })
         }
 
-        this.compareBars = function () {
+        this.orderLocations = function (lng, lat) {
+            var barArray = [];
+            barArray.push(lng, lat);
+
+            for (var i = 0; i < barArray.length; i++) {
+                console.log("Array contents: ", barArray[i]);
+            }
 
         }
-
 
     })
