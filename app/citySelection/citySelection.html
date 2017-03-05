@@ -1,16 +1,30 @@
 <div class="content-container citySelection-content">
     <div class="container">
-        <div class="row space-bottom space-top fadedBackground">
+        <div class="row space-bottom fadedBackground">
+            <!--
             <div class="col-xs-6">
-                <h1>Planning a night out in...</h1>
-                <select class="styled-select slate" ng-model="citySelection" ng-change="onCityChange(citySelection)">
-                    <option ng-repeat="city in cities" value="{{city.name}}" ng-disabled="city.disabled">{{city.name}}</option>
-                </select>
+    <h1>Planning a night out in...</h1>
+    <select class="styled-select slate" ng-model="citySelection" ng-change="onCityChange(citySelection)">
+        <option ng-repeat="city in cities" value="{{city.name}}" ng-disabled="city.disabled">{{city.name}}</option>
+    </select>
+</div>
+-->
+            <h1>Drag marker to current location</h1>
+            <map zoom="14" center="{{centerPosition}}" style="height:90%">
+
+                <marker position="{{centerPosition}}" draggable="true" on-dragend="logLatLng()"></marker>
+
+            </map>
+
+            <div class=".col-xs-6 space-top center-text">
+                <a href="#/preferenceSelection" class="btn btn-outline btn-xl page-scroll">Continue!</a>
             </div>
         </div>
     </div>
+    <!--
     <div class="container">
         <div class="row space-bottom fadedBackground">
+            
             <div class="col-xs-6">
                 <h1>With this many people...</h1>
                 <select class="styled-select slate" ng-model="friendsNum" ng-change="onNumFriendsChange(friendsNum)">
@@ -20,6 +34,8 @@
             <div class=".col-xs-6">
                 <a ng-show="continueVisibility" href="#/preferenceSelection" class="btn btn-outline btn-xl page-scroll">Continue!</a>
             </div>
+
         </div>
     </div>
+-->
 </div>

@@ -8,9 +8,18 @@ angular.module("pyp.firebase_interactions", [])
         var barInfo = {};
         var that = this;
         var preferenceTotal = 0;
+        var currentLocation = "";
 
         var databaseRef = firebase.database().ref();
         var database = firebase.database();
+
+        this.getCurrentLngLat = function () {
+            return currentLocation;
+        }
+
+        this.setCurrentLocation = function (lng, lat) {
+            console.log("Current location: ", lng, lat);
+        }
 
         this.setPreference = function (newPreferenceTotal) {
             preferenceTotal = newPreferenceTotal;
@@ -68,8 +77,8 @@ angular.module("pyp.firebase_interactions", [])
                     barTotal += barArray[index];
                 }
 
-//                console.log('Bar total: ', barTotal);
-//                console.log('Preference total: ', preferenceTotal);
+                //                console.log('Bar total: ', barTotal);
+                //                console.log('Preference total: ', preferenceTotal);
 
                 if (barTotal == preferenceTotal) {
                     console.log('MATCH FOUND!: ', name);

@@ -31,25 +31,24 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
             stopover: true
         },
         {
-            location: {
-                lat: 54.588981,
-                lng: -5.934220
-            },
-            stopover: true
-        },
-        {
-            location: {
-                lat: 54.593119,
-                lng: -5.931274
-            },
-            stopover: true
-        },
-        {
-            location: {
-                lat: 54.597165,
-                lng: -5.932189
-            },
-            stopover: true
-        }, ];
+    location: {
+        lat: 54.588981,
+        lng: -5.934220
+    },
+    stopover: true
+}, {
+    location: {
+        lat: 54.593119,
+        lng: -5.931274
+    },
+    stopover: true
+}, {
+    location: {
+        lat: 54.597165,
+        lng: -5.932189
+    },
+    stopover: true
+},
+                       ];
 
 }]);
