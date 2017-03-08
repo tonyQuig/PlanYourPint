@@ -9,19 +9,13 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
     });
 }])
 
-.controller('MapPlottingCtrl', ['$scope', 'NgMap', function ($scope, NgMap) {
-
-    console.log('Map Plotting controller loaded!');
-
-    NgMap.getMap().then(function (map) {
-        console.log(map.getCenter());
-        console.log('markers', map.markers);
-        console.log('shapes', map.shapes);
-    });
+.controller('MapPlottingCtrl', ['$scope', 'NgMap', 'FirebaseService', function ($scope, NgMap, FirebaseService) {
 
     $scope.logLatLng = function (e) {
         console.log('loc', e.latLng);
     }
+
+    console.log('SELECTED BAR LOCATIONS: ', FirebaseService.getLocations());
 
     $scope.wayPoints = [{
             location: {
@@ -31,23 +25,23 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
             stopover: true
         },
         {
-    location: {
-        lat: 54.588981,
-        lng: -5.934220
-    },
-    stopover: true
+            location: {
+                lat: 54.588981,
+                lng: -5.934220
+            },
+            stopover: true
 }, {
-    location: {
-        lat: 54.593119,
-        lng: -5.931274
-    },
-    stopover: true
+            location: {
+                lat: 54.593119,
+                lng: -5.931274
+            },
+            stopover: true
 }, {
-    location: {
-        lat: 54.597165,
-        lng: -5.932189
-    },
-    stopover: true
+            location: {
+                lat: 54.597165,
+                lng: -5.932189
+            },
+            stopover: true
 },
                        ];
 

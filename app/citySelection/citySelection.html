@@ -1,13 +1,11 @@
 <div class="content-container citySelection-content">
-    <div class="container">
-        <div class="row space-bottom fadedBackground">
+    <div class="container center-text">
+        <div class="row space-bottom fadedBackground center-text">
 
-            <div class="col-xs-6">
-                <h1>Planning a night out in...</h1>
-                <select class="styled-select slate" ng-model="citySelection" ng-change="onCityChange(citySelection)">
-                    <option ng-repeat="city in cities" value="{{city.name}}" ng-disabled="city.disabled">{{city.name}}</option>
-                </select>
-            </div>
+            <h1>Planning a night out in...</h1>
+            <select class="styled-select slate" ng-model="citySelection" ng-change="onCityChange(citySelection)">
+                <option ng-repeat="city in cities" value="{{city.name}}" ng-disabled="city.disabled">{{city.name}}</option>
+            </select>
 
         </div>
 
@@ -19,27 +17,9 @@
 
             </map>
 
-            <div class=".col-xs-6 space-top center-text">
-                <a href="#/preferenceSelection" class="btn btn-outline btn-xl page-scroll">Continue!</a>
+            <div class=".col-xs-6 space-top">
+                <a href="#/preferenceSelection" ng-show="continueVisibility" class="btn btn-outline btn-xl page-scroll">Continue!</a>
             </div>
         </div>
-
     </div>
-    <!--
-    <div class="container">
-        <div class="row space-bottom fadedBackground">
-            
-            <div class="col-xs-6">
-                <h1>With this many people...</h1>
-                <select class="styled-select slate" ng-model="friendsNum" ng-change="onNumFriendsChange(friendsNum)">
-                    <option ng-repeat="num in numFriends" value="{{num.name}}" ng-disabled="num.disabled">{{num.name}}</option>
-                </select>
-            </div>
-            <div class=".col-xs-6">
-                <a ng-show="continueVisibility" href="#/preferenceSelection" class="btn btn-outline btn-xl page-scroll">Continue!</a>
-            </div>
-
-        </div>
-    </div>
--->
 </div>

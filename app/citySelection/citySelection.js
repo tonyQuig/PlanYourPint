@@ -15,12 +15,14 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase', 'ngMap'])
     var user = firebase.auth().currentUser;
     console.log('User info: ', user);
 
+    //    $scope.mapVisibility = false;
+
     //Sets visibility of continue button.
     function continueButtonVisibility() {
 
         $scope.continueVisibility = false;
 
-        if ($scope.citySelection != null && $scope.friendsNum != null) {
+        if ($scope.citySelection != null) {
             $scope.continueVisibility = true;
         }
 
@@ -28,6 +30,7 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase', 'ngMap'])
 
     $scope.onCityChange = function () {
         continueButtonVisibility();
+        //        $scope.mapVisibility = true;
         FirebaseService.setLocation($scope.citySelection);
     }
 
@@ -45,17 +48,7 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase', 'ngMap'])
         {
             id: 1,
             name: "Belfast",
-            disabled: false
-        },
-        {
-            id: 2,
-            name: "London",
-            disabled: false
-        },
-        {
-            id: 3,
-            name: "Dublin",
-            disabled: false
+            disabled: false,
         }
 
     ];

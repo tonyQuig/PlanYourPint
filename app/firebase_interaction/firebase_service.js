@@ -9,6 +9,7 @@ angular.module("pyp.firebase_interactions", [])
         var that = this;
         var preferenceTotal = 0;
         var currentLocation = "";
+        var barArray = [];
 
         var databaseRef = firebase.database().ref();
         var database = firebase.database();
@@ -44,12 +45,6 @@ angular.module("pyp.firebase_interactions", [])
             this.getTotalBarValues(barInfo);
         }
 
-        //        database.ref('/bars/').once('value').then(function (response) {
-        //            console.log('Location: ', location);
-        //            that.setBarInfo(response.val());
-        //
-        //        })
-
         this.getBarInfo = function () {
             database.ref('/bars/' + location).on('value', function (response) {
                 that.setBarInfo(response.val());
@@ -78,21 +73,32 @@ angular.module("pyp.firebase_interactions", [])
 
                 if (barTotal == preferenceTotal) {
                     console.log('MATCH FOUND!: ', barInfo);
-                    that.orderLocations(barInfo.longitude, barInfo.latitude);
+                    that.pushLocations(barInfo.longitude, barInfo.latitude);
                 } else {
 
                 };
             })
         }
 
-        this.orderLocations = function (lng, lat) {
-            var barArray = [];
-            barArray.push(lng, lat);
+        this.pushLocations = function (lng, lat) {
+
+            //            barArray.push(lng + ", " + lat);
+            barArray.push({
+                lng, lat
+            });
 
             for (var i = 0; i < barArray.length; i++) {
                 console.log("Array contents: ", barArray[i]);
             }
-
         }
+
+        this.getLocations = function () {
+            return barArray;
+        }
+
+
+
+
+
 
     })
