@@ -120,6 +120,6 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase', 'ngMap'])
             stopover: true
             }, ];
 
-
+    console.log("TEST WAYPOINTS: ", $scope.wayPoints);
 
 }]);

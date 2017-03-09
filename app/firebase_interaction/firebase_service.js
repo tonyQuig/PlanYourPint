@@ -80,11 +80,15 @@ angular.module("pyp.firebase_interactions", [])
             })
         }
 
-        this.pushLocations = function (lng, lat) {
+        this.pushLocations = function (oldLng, oldLat) {
 
-            //            barArray.push(lng + ", " + lat);
+            var lat = parseFloat(oldLat);
+            var lng = parseFloat(oldLng);
+
             barArray.push({
-                lng, lat
+                location: {
+                    lng, lat
+                }
             });
 
             for (var i = 0; i < barArray.length; i++) {
