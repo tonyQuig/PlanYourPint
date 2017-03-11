@@ -12,11 +12,10 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase', 'ngMap'])
 .controller('CitySelectionCtrl', ['$scope', 'FirebaseService', 'NgMap', function ($scope, FirebaseService, NgMap) {
 
     //Current user information
-    var user = firebase.auth().currentUser;
-    console.log('User info: ', user);
+//    var user = firebase.auth().currentUser;
+//    console.log('User info: ', user);
 
     //    $scope.mapVisibility = false;
-
     //Sets visibility of continue button.
     function continueButtonVisibility() {
 
@@ -77,18 +76,17 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase', 'ngMap'])
     ];
 
 
-    NgMap.getMap().then(function (map) {
-        console.log(map.getCenter());
-        console.log('markers', map.markers);
-        console.log('shapes', map.shapes);
-    });
+//    NgMap.getMap().then(function (map) {
+            //        console.log(map.getCenter());
+            //        console.log('markers', map.markers);
+            //        console.log('shapes', map.shapes);
+            //    });
 
     $scope.logLatLng = function (e) {
-        console.log('lat: ', e.latLng.lat());
-        console.log('lng: ', e.latLng.lng());
-        FirebaseService.setCurrentLocation(e.latLng.lng(), e.latLng.lat());
+        FirebaseService.setUserLocation(e.latLng.lng(), e.latLng.lat());
     }
 
+    //Set the centre point for city selection map
     $scope.centerPosition = "[54.596751, -5.930031]";
 
     $scope.wayPoints = [{

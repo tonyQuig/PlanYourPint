@@ -14,12 +14,17 @@ angular.module("pyp.firebase_interactions", [])
         var databaseRef = firebase.database().ref();
         var database = firebase.database();
 
-        this.getCurrentLngLat = function () {
+        this.getUserLocation = function () {
+            console.log("Current location: ", currentLocation);
             return currentLocation;
         }
 
-        this.setCurrentLocation = function (lng, lat) {
-            console.log("Current location: ", lng, lat);
+        this.setUserLocation = function (lng, lat) {
+
+            currentLocation = {
+                lat, lng
+            };
+
         }
 
         this.setPreference = function (newPreferenceTotal) {
@@ -80,21 +85,24 @@ angular.module("pyp.firebase_interactions", [])
             })
         }
 
+        //Push selected locations to an array
         this.pushLocations = function (oldLng, oldLat) {
 
-            var lat = parseFloat(oldLat);
-            var lng = parseFloat(oldLng);
+                //Local parsing of strings into floats for google maps api
+                var lat = parseFloat(oldLng);
+                var lng = parseFloat(oldLat);
 
-            barArray.push({
-                location: {
-                    lng, lat
-                }
-            });
+                //Push selected bar locations to an array
+                barArray.push({
+                    location: {
+                        lng, lat
+                    }
+                });
+                //            for (var i = 0; i < barArray.length; i++) {
+                //                console.log("Array contents: ", barArray[i]);
+                //            }
+            } //end pushLocations
 
-            for (var i = 0; i < barArray.length; i++) {
-                console.log("Array contents: ", barArray[i]);
-            }
-        }
 
         this.getLocations = function () {
             return barArray;

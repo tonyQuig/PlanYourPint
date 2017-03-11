@@ -21,4 +21,8 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
 
     console.log("Mapplotting.js waypoints: ", $scope.wayPoints);
 
+    $scope.originLocation = FirebaseService.getUserLocation();
+
+    console.log("Origin Location: ", $scope.originLocation);
+
 }]);
