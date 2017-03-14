@@ -11,6 +11,8 @@ angular.module('pyp.preferenceSelection', ['ngRoute', 'firebase'])
 
 .controller('PreferenceSelectionCtrl', ['$scope', 'FirebaseService', function ($scope, FirebaseService) {
 
+    $scope.noMatchesFound = false;
+
     $scope.onPriceChange = function () {
         preferenceContinueButton();
     }
@@ -58,6 +60,12 @@ angular.module('pyp.preferenceSelection', ['ngRoute', 'firebase'])
         FirebaseService.setPreference(totalPreference);
 
         console.log('Average total: ', totalPreference);
+
+        if (totalPreference == null) {
+            $scope.noMatchesFound = true;
+        } else {
+            $scope.noMatchesFound = false;
+        }
     }
 
     $scope.priceOptions = [

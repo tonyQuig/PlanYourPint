@@ -11,11 +11,6 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase', 'ngMap'])
 
 .controller('CitySelectionCtrl', ['$scope', 'FirebaseService', 'NgMap', function ($scope, FirebaseService, NgMap) {
 
-    //Current user information
-//    var user = firebase.auth().currentUser;
-//    console.log('User info: ', user);
-
-    //    $scope.mapVisibility = false;
     //Sets visibility of continue button.
     function continueButtonVisibility() {
 
@@ -29,13 +24,7 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase', 'ngMap'])
 
     $scope.onCityChange = function () {
         continueButtonVisibility();
-        //        $scope.mapVisibility = true;
         FirebaseService.setLocation($scope.citySelection);
-    }
-
-    $scope.onNumFriendsChange = function () {
-        continueButtonVisibility();
-        FirebaseService.setNumFriends($scope.friendsNum);
     }
 
     $scope.cities = [
@@ -52,36 +41,6 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase', 'ngMap'])
 
     ];
 
-    $scope.numFriends = [
-        {
-            id: 0,
-            name: "Select number of friends...",
-            disabled: true
-        },
-        {
-            id: 1,
-            name: "1",
-            disabled: false
-        },
-        {
-            id: 2,
-            name: "2",
-            disabled: false
-        },
-        {
-            id: 3,
-            name: "3",
-            disabled: false
-        }
-    ];
-
-
-//    NgMap.getMap().then(function (map) {
-            //        console.log(map.getCenter());
-            //        console.log('markers', map.markers);
-            //        console.log('shapes', map.shapes);
-            //    });
-
     $scope.logLatLng = function (e) {
         FirebaseService.setUserLocation(e.latLng.lng(), e.latLng.lat());
     }
@@ -89,35 +48,5 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase', 'ngMap'])
     //Set the centre point for city selection map
     $scope.centerPosition = "[54.596751, -5.930031]";
 
-    $scope.wayPoints = [{
-            location: {
-                lat: 54.584449,
-                lng: -5.937342
-            },
-            stopover: true
-            },
-        {
-            location: {
-                lat: 54.588981,
-                lng: -5.934220
-            },
-            stopover: true
-            },
-        {
-            location: {
-                lat: 54.593119,
-                lng: -5.931274
-            },
-            stopover: true
-            },
-        {
-            location: {
-                lat: 54.597165,
-                lng: -5.932189
-            },
-            stopover: true
-            }, ];
-
-    console.log("TEST WAYPOINTS: ", $scope.wayPoints);
 
 }]);

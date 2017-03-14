@@ -11,6 +11,10 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
 
 .controller('MapPlottingCtrl', ['$scope', 'NgMap', 'FirebaseService', function ($scope, NgMap, FirebaseService) {
 
+    var user = firebase.auth().currentUser;
+
+    $scope.userDisplayName = user.displayName;
+
     $scope.logLatLng = function (e) {
         console.log('loc', e.latLng);
     }
