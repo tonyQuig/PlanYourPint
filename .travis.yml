@@ -16,7 +16,7 @@ install:
 before_script:
   - npm install
   - npm install selenium-standalone
-  - npm start selenium-standalone
+#  - npm start selenium-standalone
 
 script:
   - npm run test-single-run
