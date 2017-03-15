@@ -11,15 +11,15 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
 
 .controller('MapPlottingCtrl', ['$scope', 'NgMap', 'FirebaseService', function ($scope, NgMap, FirebaseService) {
 
+    //    $scope.wayPoints = null;
+
     var user = firebase.auth().currentUser;
 
     $scope.userDisplayName = user.displayName;
 
-    $scope.logLatLng = function (e) {
-        console.log('loc', e.latLng);
-    }
-
-    console.log('SELECTED BAR LOCATIONS: ', FirebaseService.getLocations());
+    //    $scope.logLatLng = function (e) {
+    //        console.log('loc', e.latLng);
+    //    }
 
     $scope.wayPoints = FirebaseService.getLocations();
 
@@ -27,6 +27,6 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
 
     $scope.originLocation = FirebaseService.getUserLocation();
 
-    console.log("Origin Location: ", $scope.originLocation);
+    //    console.log("Origin Location: ", $scope.originLocation);
 
 }]);

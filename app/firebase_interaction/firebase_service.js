@@ -61,6 +61,8 @@ angular.module("pyp.firebase_interactions", [])
             //Iterate through each bar
             angular.forEach(allBars, function (barInfo, index) {
 
+                barArray = [];
+
                 var barTotal = 0;
 
                 var age = parseInt(barInfo.ageRange);
@@ -88,6 +90,8 @@ angular.module("pyp.firebase_interactions", [])
         //Push selected locations to an array
         this.pushLocations = function (oldLng, oldLat) {
 
+                //                barArray = null;
+
                 //Local parsing of strings into floats for google maps api
                 var lat = parseFloat(oldLng);
                 var lng = parseFloat(oldLat);
@@ -98,9 +102,6 @@ angular.module("pyp.firebase_interactions", [])
                         lng, lat
                     }
                 });
-                //            for (var i = 0; i < barArray.length; i++) {
-                //                console.log("Array contents: ", barArray[i]);
-                //            }
             } //end pushLocations
 
 

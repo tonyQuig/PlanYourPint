@@ -1,20 +1,32 @@
-<div>
-
-    <div class="col-xs-7">
-        <h2>
+<div class="content-container mapPlotting-content">
+    <h2>
             <kbd>{{userDisplayName}}'s plan</kbd>
         </h2>
-    </div>
+    <!--
+<div class="col-xs-7">
+    <h2>
+            <kbd>Where to go</kbd>
+        </h2>
+</div>
+-->
 
     <div class="col-xs-6">
 
-        <map zoom="14" center="54.596550, -5.929346" style="height:90%" on-click="logLatLng()">
+        <map zoom="14" center="54.596550, -5.929346" style="height:90%">
 
             <directions draggable="true" panel="directions-panel" travel-mode="WALKING" waypoints="{{wayPoints}}" origin="{{originLocation}}" destination="{{originLocation}}"></directions>
 
         </map>
 
     </div>
+
+    <!--
+    <div class="col-xs-7">
+        <h2>
+            <kbd>How to get there</kbd>
+        </h2>
+    </div>
+-->
 
     <div class="col-xs-6">
 

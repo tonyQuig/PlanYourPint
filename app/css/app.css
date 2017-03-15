@@ -54,6 +54,16 @@
         background: url("../images/preference_selection_drink_options.jpeg"), linear-gradient(to left, #4d88ff, #00b38f);
     }
     
+    .mapPlotting-content {
+        background: url("../images/map_plotting_screen_bar.jpeg");
+        background: url("../images/map_plotting_screen_bar.jpeg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
+        background: url("../images/map_plotting_screen_bar.jpeg"), linear-gradient(to left, #4d88ff, #00b38f);
+    }
+    
+    #directions-panel {
+        background-color: white;
+    }
+    
     .center-text {
         text-align: center;
     }
