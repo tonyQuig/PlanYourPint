@@ -28,17 +28,7 @@ body {
 }
 
 .home-content {
-    background: url("../images/home_page_cheers.jpg") no-repeat center center;
-    /*
-    background: url("../images/home_page_cheers.jpg"),
--webkit-linear-gradient(to left,
-#4d88ff,
-#00b38f);
-background: url("../images/home_page_cheers.jpg"),
-linear-gradient(to left,
-#4d88ff,
-#00b38f);
-*/
+    background: url("../images/home_page_cheers.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
