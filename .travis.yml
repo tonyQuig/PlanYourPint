@@ -15,9 +15,10 @@ install:
 
 before_script:
   - npm install
-  - npm install selenium-standalone
-  - npm start webdriver-manager --standalone
+#  - npm install selenium-standalone
+#  - npm start webdriver-manager --standalone
 #  - npm start selenium-standalone
+  - ./node_modules/protractor/bin/webdriver-manager update
 
 script:
   - npm run test-single-run
