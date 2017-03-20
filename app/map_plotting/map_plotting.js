@@ -21,4 +21,5 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
 
     $scope.originLocation = FirebaseService.getUserLocation();
 
+    $scope.selectedBarNames = FirebaseService.getSelectedBarNameArray();
 }]);

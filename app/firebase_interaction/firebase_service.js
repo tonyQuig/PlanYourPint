@@ -10,6 +10,8 @@ angular.module("pyp.firebase_interactions", [])
         var preferenceTotal = 0;
         var currentLocation = "";
         var barArray = [];
+        var selectedBarNameArray = [];
+        var selectedBarName = "";
 
         var databaseRef = firebase.database().ref();
         var database = firebase.database();
@@ -76,10 +78,38 @@ angular.module("pyp.firebase_interactions", [])
 
                 for (var index = 0; index < barArray.length; index++) {
                     barTotal += barArray[index];
+
                 };
+
                 that.findMatch(barTotal, barInfo);
             })
         }
+
+        this.setSelectedBarName = function (newSelectedBarName) {
+
+            selectedBarName = newSelectedBarName;
+            //            console.log("Selected bar name = ", selectedBarName);
+            this.pushBarName(selectedBarName);
+        }
+
+        this.getSelectedBarName = function () {
+            return selectedBarName;
+        }
+
+        this.getSelectedBarNameArray = function () {
+            return selectedBarNameArray;
+        }
+
+        this.pushBarName = function (newBarName) {
+
+            console.log('Bar name: ', newBarName);
+            var barName = newBarName;
+            selectedBarNameArray.push(
+                barName
+            );
+
+        }
+
 
         this.findMatch = function (barTotal, barInfo) {
 
@@ -88,6 +118,8 @@ angular.module("pyp.firebase_interactions", [])
 
             if (newBarTotal == preferenceTotal) {
                 console.log('MATCH FOUND!: ', barInfo);
+                that.setSelectedBarName(barInfo.name);
+                //                that.pushBarName(barInfo.name);
                 that.pushLocations(barInfo.longitude, barInfo.latitude);
             } else {
 
