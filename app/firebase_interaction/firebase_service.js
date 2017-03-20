@@ -77,41 +77,39 @@ angular.module("pyp.firebase_interactions", [])
                 for (var index = 0; index < barArray.length; index++) {
                     barTotal += barArray[index];
                 };
-
-                if (barTotal == preferenceTotal) {
-                    console.log('MATCH FOUND!: ', barInfo);
-                    that.pushLocations(barInfo.longitude, barInfo.latitude);
-                } else {
-
-                };
+                that.findMatch(barTotal, barInfo);
             })
+        }
+
+        this.findMatch = function (barTotal, barInfo) {
+
+            var newBarTotal = barTotal;
+            var newBarInfo = barInfo;
+
+            if (newBarTotal == preferenceTotal) {
+                console.log('MATCH FOUND!: ', barInfo);
+                that.pushLocations(barInfo.longitude, barInfo.latitude);
+            } else {
+
+            };
         }
 
         //Push selected locations to an array
         this.pushLocations = function (oldLng, oldLat) {
 
-                //                barArray = null;
+            //Local parsing of strings into floats for google maps api
+            var lat = parseFloat(oldLng);
+            var lng = parseFloat(oldLat);
 
-                //Local parsing of strings into floats for google maps api
-                var lat = parseFloat(oldLng);
-                var lng = parseFloat(oldLat);
-
-                //Push selected bar locations to an array
-                barArray.push({
-                    location: {
-                        lng, lat
-                    }
-                });
-            } //end pushLocations
-
+            //Push selected bar locations to an array
+            barArray.push({
+                location: {
+                    lng, lat
+                }
+            });
+        }
 
         this.getLocations = function () {
             return barArray;
         }
-
-
-
-
-
-
     })

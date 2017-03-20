@@ -11,22 +11,14 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
 
 .controller('MapPlottingCtrl', ['$scope', 'NgMap', 'FirebaseService', function ($scope, NgMap, FirebaseService) {
 
-    //    $scope.wayPoints = null;
-
     var user = firebase.auth().currentUser;
 
     $scope.userDisplayName = user.displayName;
-
-    //    $scope.logLatLng = function (e) {
-    //        console.log('loc', e.latLng);
-    //    }
 
     $scope.wayPoints = FirebaseService.getLocations();
 
     console.log("Mapplotting.js waypoints: ", $scope.wayPoints);
 
     $scope.originLocation = FirebaseService.getUserLocation();
-
-    //    console.log("Origin Location: ", $scope.originLocation);
 
 }]);
