@@ -16,7 +16,7 @@ install:
 before_script:
   - npm install
   - npm install selenium-standalone
-  - webdriver-manager start --standalone
+  - npm start webdriver-manager --standalone
 #  - npm start selenium-standalone
 
 script:
