@@ -12,6 +12,7 @@ angular.module("pyp.firebase_interactions", [])
         var barArray = [];
         var selectedBarNameArray = [];
         var selectedBarName = "";
+        var preferenceName = [];
 
         var databaseRef = firebase.database().ref();
         var database = firebase.database();
@@ -144,4 +145,19 @@ angular.module("pyp.firebase_interactions", [])
         this.getLocations = function () {
             return barArray;
         }
+
+        this.getPreferenceNames = function () {
+            return preferenceName;
+        }
+
+        this.setPreferenceNames = function (price, food, drinkType, atmosphere, ageRange, dressCode) {
+            preferenceName.push(price, food, drinkType, atmosphere, ageRange, dressCode);
+
+            console.log('PreferenceName array: ', preferenceName);
+        }
+
+
+
+
+
     })

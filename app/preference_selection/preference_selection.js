@@ -9,11 +9,12 @@ angular.module('pyp.preferenceSelection', ['ngRoute', 'firebase'])
     });
 }])
 
-.controller('PreferenceSelectionCtrl', ['$scope', 'FirebaseService', function ($scope, FirebaseService) {
+.controller('PreferenceSelectionCtrl', ['$scope', 'FirebaseService', 'PreferenceGenerator', function ($scope, FirebaseService, PreferenceGenerator) {
 
     $scope.noMatchesFound = false;
 
     $scope.onPriceChange = function () {
+        console.log("Price change: ", $scope.price.name);
         preferenceContinueButton();
     }
 
@@ -48,9 +49,14 @@ angular.module('pyp.preferenceSelection', ['ngRoute', 'firebase'])
             $scope.dressCode != null) {
 
             getPreferenceTotal();
+            sendPreferenceNames();
             $scope.preferenceContinueButton = true;
             FirebaseService.getBarInfo();
         }
+    }
+
+    function sendPreferenceNames() {
+        FirebaseService.setPreferenceNames($scope.price, $scope.food, $scope.drinkType, $scope.atmosphere, $scope.ageRange, $scope.dressCode);
     }
 
     function getPreferenceTotal() {
@@ -68,102 +74,16 @@ angular.module('pyp.preferenceSelection', ['ngRoute', 'firebase'])
         }
     }
 
-    $scope.priceOptions = [
-        {
-            id: 1,
-            name: "£",
-        },
-        {
-            id: 2,
-            name: "££",
-        },
-        {
-            id: 3,
-            name: "£££",
-        }
-    ];
+    $scope.priceOptions = PreferenceGenerator.getPricePreferences();
 
-    $scope.foodOptions = [
-        {
-            id: 1,
-            name: "Yes"
-        },
-        {
-            id: 2,
-            name: "No"
-        }
-    ];
+    $scope.foodOptions = PreferenceGenerator.getFoodPreferences();
 
-    $scope.drinkOptions = [
-        {
-            id: 1,
-            name: "Cocktails"
-        },
-        {
-            id: 2,
-            name: "Craft Beers"
-        },
-        {
-            id: 3,
-            name: "No Preference"
-        }
-    ];
+    $scope.drinkOptions = PreferenceGenerator.getDrinkPreferences();
 
-    $scope.atmosphereOptions = [
-        {
-            id: 1,
-            name: "Quiet"
-        },
-        {
-            id: 2,
-            name: "Lively"
-        },
-        {
-            id: 3,
-            name: "Background Music"
-        },
-        {
-            id: 4,
-            name: "Live Band"
-        },
-        {
-            id: 5,
-            name: "Club"
-        }
-    ];
+    $scope.atmosphereOptions = PreferenceGenerator.getAtmospherePreferences();
 
-    $scope.ageOptions = [
-        {
-            id: 1,
-            name: "18-25"
-        },
-        {
-            id: 2,
-            name: "25-34"
-        },
-        {
-            id: 3,
-            name: "35+"
-        },
-        {
-            id: 4,
-            name: "No Preference"
-        }
-    ];
+    $scope.ageOptions = PreferenceGenerator.getAgePreferences();
 
-    $scope.dressCodeOptions = [
-        {
-            id: 1,
-            name: "Casual"
-        },
-        {
-            id: 2,
-            name: "Smart"
-        },
-        {
-            id: 3,
-            name: "Party"
-        }
-    ];
+    $scope.dressCodeOptions = PreferenceGenerator.getDressPreferences();
 
 }])

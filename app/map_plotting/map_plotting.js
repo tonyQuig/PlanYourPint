@@ -9,7 +9,29 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
     });
 }])
 
-.controller('MapPlottingCtrl', ['$scope', 'NgMap', 'FirebaseService', function ($scope, NgMap, FirebaseService) {
+.controller('MapPlottingCtrl', ['$scope', 'NgMap', 'FirebaseService', 'PreferenceGenerator', function ($scope, NgMap, FirebaseService, PreferenceGenerator) {
+
+    $scope.showPreferences = false;
+
+    $scope.editButtonClick = function () {
+        if ($scope.showPreferences == true) {
+            $scope.showPreferences = false;
+        } else {
+            $scope.showPreferences = true;
+        }
+    }
+
+    $scope.priceOptions = PreferenceGenerator.getPricePreferences();
+
+    $scope.foodOptions = PreferenceGenerator.getFoodPreferences();
+
+    $scope.drinkOptions = PreferenceGenerator.getDrinkPreferences();
+
+    $scope.atmosphereOptions = PreferenceGenerator.getAtmospherePreferences();
+
+    $scope.ageOptions = PreferenceGenerator.getAgePreferences();
+
+    $scope.dressCodeOptions = PreferenceGenerator.getDressPreferences();
 
     var user = firebase.auth().currentUser;
 

@@ -3,10 +3,66 @@
     <div class="container">
 
         <div class="row">
+            <a ng-click="editButtonClick()" class="btn btn-outline btn-xl page-scroll">Edit Plan</a>
+        </div>
+
+        <div class="row preferenceBoxes fadedBackground space-all-around" ng-show="showPreferences">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>Price</h3>
+                    <select ng-model="price" multiple ng-change="onPriceChange(price)">
+                        <option ng-repeat="price in priceOptions" value="{{price.id}}">{{price.name}}</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-4">
+                    <h3>Food Options</h3>
+                    <select ng-model="food" multiple ng-change="onFoodChange(food)">
+                        <option ng-repeat="food in foodOptions" value="{{food.id}}">{{food.name}}</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-4">
+                    <h3>Drink Type</h3>
+                    <select ng-model="drinkType" multiple ng-change="onDrinkChange(drinkType)">
+                        <option ng-repeat="drink in drinkOptions" value="{{drink.id}}">{{drink.name}}</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>Atmosphere</h3>
+                    <select ng-model="atmosphere" multiple ng-change="onAtmosphereChange(atmosphere)">
+                        <option ng-repeat="atmosphere in atmosphereOptions" value="{{atmosphere.id}}">{{atmosphere.name}}</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-4">
+                    <h3>Age Range</h3>
+                    <select ng-model="ageRange" multiple ng-change="onAgeRangeChange(ageRange)">
+                        <option ng-repeat="age in ageOptions" value="{{age.id}}">{{age.name}}</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-4">
+                    <h3>Dress Code</h3>
+                    <select ng-model="dressCode" multiple ng-change="onDressCodeChange(dressCode)">
+                        <option ng-repeat="code in dressCodeOptions" value="{{code.id}}">{{code.name}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row center-text space-top">
+                <a ng-click="" class="btn btn-outline btn-xl page-scroll">Recalculate</a>
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-xs-12 col-sm-6 col-lg-8">
                 <h2>
-            <kbd>{{userDisplayName}}'s plan</kbd>
-        </h2>
+                    <kbd>The plan</kbd>
+                </h2>
 
                 <map zoom="14" center="54.596550, -5.929346" style="height:90%">
 
@@ -19,8 +75,8 @@
             <div class="col-xs-6 col-lg-4">
 
                 <h2>
-            <kbd>How to get there</kbd>
-        </h2>
+                    <kbd>How to get there</kbd>
+                </h2>
 
                 <div id="directions-panel" style="width: 100%; float:left; height: 300px; overflow: auto; padding: 0px 5px">
                 </div>

@@ -9,26 +9,21 @@
                         <option ng-repeat="price in priceOptions" value="{{price.id}}">{{price.name}}</option>
                     </select>
                 </div>
-                <!--            </div>-->
-                <!--            <div class="row">-->
+
                 <div class="col-sm-4">
                     <h3>Food Options</h3>
                     <select ng-model="food" multiple ng-change="onFoodChange(food)">
                         <option ng-repeat="food in foodOptions" value="{{food.id}}">{{food.name}}</option>
                     </select>
                 </div>
-                <!--            </div>-->
 
-                <!--            <div class="row">-->
                 <div class="col-sm-4">
                     <h3>Drink Type</h3>
                     <select ng-model="drinkType" multiple ng-change="onDrinkChange(drinkType)">
                         <option ng-repeat="drink in drinkOptions" value="{{drink.id}}">{{drink.name}}</option>
                     </select>
                 </div>
-                <!--            </div>-->
 
-                <!--            <div class="row">-->
             </div>
             <div class="row">
                 <div class="col-sm-4">
@@ -38,17 +33,13 @@
                     </select>
                 </div>
 
-
-                <!--            <div class="row">-->
                 <div class="col-sm-4">
                     <h3>Age Range</h3>
                     <select ng-model="ageRange" multiple ng-change="onAgeRangeChange(ageRange)">
                         <option ng-repeat="age in ageOptions" value="{{age.id}}">{{age.name}}</option>
                     </select>
                 </div>
-                <!--            </div>-->
 
-                <!--            <div class="row">-->
                 <div class="col-sm-4">
                     <h3>Dress Code</h3>
                     <select ng-model="dressCode" multiple ng-change="onDressCodeChange(dressCode)">

@@ -10,6 +10,7 @@ angular.module('pyp', [
     'pyp.mapPlotting',
     'pyp.firebase_interactions',
     'pyp.user_profile',
+    'pyp.preference_generator_service',
 ])
     .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
 
