@@ -66,6 +66,7 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
         $scope.wayPoints = [];
         //        $scope.originLocation = [];
         FirebaseService.emptybarArray();
+        FirebaseService.emptyBarDetails();
 
         console.log('waypoints on recalculate click: ', $scope.wayPoints);
 
@@ -129,7 +130,7 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
     //    }
 
     $scope.confirmPlan = function () {
-        FirebaseService.savePlan(userId, $scope.originLocation, $scope.wayPoints);
+        FirebaseService.savePlan(userId, $scope.originLocation, $scope.wayPoints, FirebaseService.getBarDetails());
     }
 
 }]);

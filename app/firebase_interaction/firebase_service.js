@@ -6,6 +6,7 @@ angular.module("pyp.firebase_interactions", [])
         var location = "";
         var friends = 0;
         var barInfo = {};
+        var barDetails = [];
         var that = this;
         var preferenceTotal = 0;
         var currentLocation = "";
@@ -13,14 +14,10 @@ angular.module("pyp.firebase_interactions", [])
         var selectedBarNameArray = [];
         var selectedBarName = "";
         var preferenceName = [];
-
-        //        var user = firebase.auth().currentUser;
-
         var databaseRef = firebase.database().ref();
         var database = firebase.database();
 
         this.getUserLocation = function () {
-            console.log("Current location: ", currentLocation);
             return currentLocation;
         }
 
@@ -34,7 +31,6 @@ angular.module("pyp.firebase_interactions", [])
 
         this.setPreference = function (newPreferenceTotal) {
             preferenceTotal = newPreferenceTotal;
-            console.log('Preference Total = ', preferenceTotal);
         }
 
         this.getLocation = function () {
@@ -110,7 +106,6 @@ angular.module("pyp.firebase_interactions", [])
 
         this.pushBarName = function (newBarName) {
 
-            console.log('Bar name: ', newBarName);
             var barName = newBarName;
             selectedBarNameArray.push(
                 barName
@@ -128,6 +123,7 @@ angular.module("pyp.firebase_interactions", [])
                 that.setSelectedBarName(barInfo.name);
                 //                that.pushBarName(barInfo.name);
                 that.pushLocations(barInfo.longitude, barInfo.latitude);
+                that.pushBarDetails(barInfo);
             } else {
 
             };
@@ -148,8 +144,22 @@ angular.module("pyp.firebase_interactions", [])
             });
         }
 
+        this.pushBarDetails = function (barInformation) {
+            barDetails.push({
+                barInformation
+            });
+            console.log("BAR DETAILS: ", barDetails);
+        }
+
+        this.emptyBarDetails = function () {
+            barDetails = [];
+        }
+
+        this.getBarDetails = function () {
+            return barDetails;
+        }
+
         this.getLocations = function () {
-            console.log('BarArray: ', barArray);
             return barArray;
         }
 
@@ -165,18 +175,15 @@ angular.module("pyp.firebase_interactions", [])
             preferenceName.push(price, food, drinkType, atmosphere, ageRange, dressCode);
         }
 
-        this.savePlan = function (userId, originLocation, wayPoints) {
+        this.savePlan = function (userId, originLocation, wayPoints, barInformation) {
             console.log('Origin location: ', originLocation);
             console.log('Selected bar waypoints: ', wayPoints);
+            console.log('Bar Information: ', barInformation);
 
-            database.ref('userPlans/' + userId).set({
-                origin: originLocation,
-                locations: wayPoints
-            });
+            //            database.ref('userPlans/' + userId).set({
+            //                origin: originLocation,
+            //                locations: wayPoints
+            //            });
         }
-
-
-
-
 
     })
