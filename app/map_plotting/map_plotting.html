@@ -54,7 +54,7 @@
             </div>
 
             <div class="row center-text space-top">
-                <a ng-click="" class="btn btn-outline btn-xl page-scroll">Recalculate</a>
+                <a ng-show="recalculateButton" ng-click="recalculateDirections()" class="btn btn-outline btn-xl page-scroll">Recalculate</a>
             </div>
         </div>
 
@@ -84,10 +84,26 @@
             </div>
         </div>
 
-        <div class="row">
-            <div ng-repeat="name in selectedBarNames" class="col-xs-6 col-sm-4" style="background-color:#000;">
-                {{name}}
+        <div class="row space-top">
+
+            <div ng-repeat="name in selectedBarNames track by $index" class="card text-center col-xs-6 col-sm-4 padding curvedEdges">
+                <div class="card-header selectedBarCards">
+
+                </div>
+                <div class="card-block selectedBarCards">
+                    <h4 class="card-title">{{name}}</h4>
+                    <p class="card-text">Do something here</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                <div class="card-footer text-muted selectedBarCards">
+                    ...
+                </div>
             </div>
+
+
+
+
+
         </div>
     </div>
 </div>

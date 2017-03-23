@@ -38,6 +38,7 @@ angular.module('pyp.preferenceSelection', ['ngRoute', 'firebase'])
         preferenceContinueButton();
     }
 
+
     function preferenceContinueButton() {
         $scope.preferenceContinueButton = false;
 
@@ -64,8 +65,6 @@ angular.module('pyp.preferenceSelection', ['ngRoute', 'firebase'])
         var totalPreference = parseInt($scope.price) + parseInt($scope.food) + parseInt($scope.drinkType) + parseInt($scope.atmosphere) + parseInt($scope.ageRange) + parseInt($scope.dressCode);
 
         FirebaseService.setPreference(totalPreference);
-
-        console.log('Average total: ', totalPreference);
 
         if (totalPreference == null) {
             $scope.noMatchesFound = true;

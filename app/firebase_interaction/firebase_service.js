@@ -54,6 +54,7 @@ angular.module("pyp.firebase_interactions", [])
         }
 
         this.getBarInfo = function () {
+            barInfo = {};
             database.ref('/bars/' + location).on('value', function (response) {
                 that.setBarInfo(response.val());
             });
@@ -111,7 +112,6 @@ angular.module("pyp.firebase_interactions", [])
 
         }
 
-
         this.findMatch = function (barTotal, barInfo) {
 
             var newBarTotal = barTotal;
@@ -143,7 +143,12 @@ angular.module("pyp.firebase_interactions", [])
         }
 
         this.getLocations = function () {
+            console.log('BarArray: ', barArray);
             return barArray;
+        }
+
+        this.emptybarArray = function () {
+            barArray = [];
         }
 
         this.getPreferenceNames = function () {

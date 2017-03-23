@@ -12,12 +12,84 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
 .controller('MapPlottingCtrl', ['$scope', 'NgMap', 'FirebaseService', 'PreferenceGenerator', function ($scope, NgMap, FirebaseService, PreferenceGenerator) {
 
     $scope.showPreferences = false;
+    $scope.recalculateButton = false;
 
     $scope.editButtonClick = function () {
         if ($scope.showPreferences == true) {
             $scope.showPreferences = false;
         } else {
             $scope.showPreferences = true;
+        }
+    }
+    $scope.onPriceChange = function () {
+        recalculateButtonVisibility();
+    }
+
+    $scope.onFoodChange = function () {
+        recalculateButtonVisibility();
+    }
+
+    $scope.onDrinkChange = function () {
+        recalculateButtonVisibility();
+    }
+
+    $scope.onAtmosphereChange = function () {
+        recalculateButtonVisibility();
+    }
+
+    $scope.onAgeRangeChange = function () {
+        recalculateButtonVisibility();
+    }
+
+    $scope.onDressCodeChange = function () {
+        recalculateButtonVisibility();
+    }
+
+    function recalculateButtonVisibility() {
+
+        if ($scope.price != null &&
+            $scope.food != null &&
+            $scope.drinkType != null &&
+            $scope.atmosphere != null &&
+            $scope.ageRange != null &&
+            $scope.dressCode != null) {
+
+            $scope.recalculateButton = true;
+        }
+    }
+
+    $scope.recalculateDirections = function () {
+
+        $scope.wayPoints = [];
+        //        $scope.originLocation = [];
+        FirebaseService.emptybarArray();
+
+        console.log('waypoints on recalculate click: ', $scope.wayPoints);
+
+        getPreferenceTotal();
+        FirebaseService.getBarInfo();
+
+        $scope.wayPoints = FirebaseService.getLocations();
+
+        console.log('waypoints waypoints fater getting new locations: ', $scope.wayPoints);
+
+        console.log("RECALCULATED WAYPOINTS: ", $scope.wayPoints);
+
+        $scope.originLocation = FirebaseService.getUserLocation();
+    }
+
+    function getPreferenceTotal() {
+
+        var totalPreference = parseInt($scope.price) + parseInt($scope.food) + parseInt($scope.drinkType) + parseInt($scope.atmosphere) + parseInt($scope.ageRange) + parseInt($scope.dressCode);
+
+        FirebaseService.setPreference(totalPreference);
+
+        console.log('Total preference', totalPreference);
+
+        if (totalPreference == null) {
+            $scope.noMatchesFound = true;
+        } else {
+            $scope.noMatchesFound = false;
         }
     }
 
@@ -34,7 +106,6 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
     $scope.dressCodeOptions = PreferenceGenerator.getDressPreferences();
 
     var user = firebase.auth().currentUser;
-
     $scope.userDisplayName = user.displayName;
 
     $scope.wayPoints = FirebaseService.getLocations();
