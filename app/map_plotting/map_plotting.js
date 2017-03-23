@@ -11,6 +11,9 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
 
 .controller('MapPlottingCtrl', ['$scope', 'NgMap', 'FirebaseService', 'PreferenceGenerator', function ($scope, NgMap, FirebaseService, PreferenceGenerator) {
 
+    var user = firebase.auth().currentUser;
+    var userId = firebase.auth().currentUser.uid;
+
     $scope.showPreferences = false;
     $scope.recalculateButton = false;
 
@@ -75,6 +78,8 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
 
         console.log("RECALCULATED WAYPOINTS: ", $scope.wayPoints);
 
+        FirebaseService.emptySelectedBarNameArray();
+
         $scope.originLocation = FirebaseService.getUserLocation();
     }
 
@@ -105,8 +110,9 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
 
     $scope.dressCodeOptions = PreferenceGenerator.getDressPreferences();
 
-    var user = firebase.auth().currentUser;
+
     $scope.userDisplayName = user.displayName;
+    console.log('userId', userId);
 
     $scope.wayPoints = FirebaseService.getLocations();
 
@@ -114,5 +120,16 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
 
     $scope.originLocation = FirebaseService.getUserLocation();
 
+    //    FirebaseService.emptySelectedBarNameArray();
     $scope.selectedBarNames = FirebaseService.getSelectedBarNameArray();
+    //    selectedBarNames();
+
+    //    function selectedBarNames() {
+    //        $scope.selectedBarNames = FirebaseService.getSelectedBarNameArray();
+    //    }
+
+    $scope.confirmPlan = function () {
+        FirebaseService.savePlan(userId, $scope.originLocation, $scope.wayPoints);
+    }
+
 }]);

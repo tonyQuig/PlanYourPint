@@ -14,6 +14,8 @@ angular.module("pyp.firebase_interactions", [])
         var selectedBarName = "";
         var preferenceName = [];
 
+        //        var user = firebase.auth().currentUser;
+
         var databaseRef = firebase.database().ref();
         var database = firebase.database();
 
@@ -102,6 +104,10 @@ angular.module("pyp.firebase_interactions", [])
             return selectedBarNameArray;
         }
 
+        this.emptySelectedBarNameArray = function () {
+            selectedBarNameArray = [];
+        }
+
         this.pushBarName = function (newBarName) {
 
             console.log('Bar name: ', newBarName);
@@ -157,8 +163,16 @@ angular.module("pyp.firebase_interactions", [])
 
         this.setPreferenceNames = function (price, food, drinkType, atmosphere, ageRange, dressCode) {
             preferenceName.push(price, food, drinkType, atmosphere, ageRange, dressCode);
+        }
 
-            console.log('PreferenceName array: ', preferenceName);
+        this.savePlan = function (userId, originLocation, wayPoints) {
+            console.log('Origin location: ', originLocation);
+            console.log('Selected bar waypoints: ', wayPoints);
+
+            database.ref('userPlans/' + userId).set({
+                origin: originLocation,
+                locations: wayPoints
+            });
         }
 
 
