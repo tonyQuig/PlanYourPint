@@ -45,25 +45,31 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase', 'ngMap'])
         FirebaseService.setUserLocation(e.latLng.lng(), e.latLng.lat());
     }
 
+    $scope.currentPosition = FirebaseService.getUserPosition();
+
     //Set the centre point for city selection map
     $scope.centerPosition = "[54.596751, -5.930031]";
-    console.log('Center position: ', $scope.centerPosition);
+    //    console.log('Center position: ', $scope.centerPosition);
 
-    var options = {
-        enableHighAccuracy: true
-    };
+    //    var options = {
+    //        enableHighAccuracy: true
+    //    };
 
-    navigator.geolocation.getCurrentPosition(function (pos) {
-            $scope.long = pos.coords.longitude;
-            $scope.lat = pos.coords.latitude;
-            //            $scope.currentPosition = '[' + $scope.lat + ', ' + $scope.long + ']';
-            $scope.currentPosition = new google.maps.LatLng($scope.lat, $scope.long);
-            console.log('Current position: ', $scope.currentPosition);
-
-        },
-        function (error) {
-            alert('Unable to get location: ' + error.message);
-        }, options);
+    //    navigator.geolocation.getCurrentPosition(function (pos) {
+    //            $scope.long = pos.coords.longitude;
+    //            $scope.lat = pos.coords.latitude;
+    //            //            $scope.currentPosition = '[' + $scope.lat + ', ' + $scope.long + ']';
+    //            $scope.currentPosition = new google.maps.LatLng($scope.lat, $scope.long);
+    //            console.log('Current position: ', $scope.currentPosition);
+    //
+    //            angular.forEach($scope.currentPosition, function (item, key) {
+    //                console.log('Position: ', item);
+    //            });
+    //
+    //        },
+    //        function (error) {
+    //            alert('Unable to get location: ' + error.message);
+    //        }, options);
 
 
 

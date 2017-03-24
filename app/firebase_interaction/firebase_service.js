@@ -186,4 +186,14 @@ angular.module("pyp.firebase_interactions", [])
             //            });
         }
 
+        var newPosition = "";
+
+        this.setUserPosition = function (position) {
+            newPosition = position;
+        }
+
+        this.getUserPosition = function () {
+            return newPosition;
+        }
+
     })
