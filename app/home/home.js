@@ -15,7 +15,6 @@ angular.module('pyp.home', ['ngRoute', 'firebase'])
         if (user) {
             $scope.isAuth = true;
         } else {
-            console.error('Not! Authenticated!: ', user);
             $scope.isAuth = false;
         }
     });
@@ -28,9 +27,8 @@ angular.module('pyp.home', ['ngRoute', 'firebase'])
             $scope.long = pos.coords.longitude;
             $scope.lat = pos.coords.latitude;
             $scope.currentPosition = '[' + $scope.lat + ', ' + $scope.long + ']';
-            //            $scope.currentPosition = new google.maps.LatLng($scope.lat, $scope.long);
-            console.log('Current position: ', $scope.currentPosition);
-            FirebaseService.setUserPosition($scope.currentPosition);
+            FirebaseService.setUserLat($scope.lat);
+            FirebaseService.setUserLong($scope.long);
 
 
         },

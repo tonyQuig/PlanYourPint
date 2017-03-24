@@ -16,6 +16,21 @@ angular.module("pyp.firebase_interactions", [])
         var preferenceName = [];
         var databaseRef = firebase.database().ref();
         var database = firebase.database();
+        var userLong = "";
+        var userLat = "";
+
+        this.setUserLat = function (lat) {
+            userLat = lat;
+        }
+        this.setUserLong = function (long) {
+            userLong = long;
+        }
+        this.getUserLong = function () {
+            return userLong;
+        }
+        this.getUserLat = function () {
+            return userLat;
+        }
 
         this.getUserLocation = function () {
             return currentLocation;
@@ -180,6 +195,7 @@ angular.module("pyp.firebase_interactions", [])
             console.log('Selected bar waypoints: ', wayPoints);
             console.log('Bar Information: ', barInformation);
 
+            //UNCOMMENT IN PRODUCTION
             //            database.ref('userPlans/' + userId).set({
             //                origin: originLocation,
             //                locations: wayPoints
@@ -195,5 +211,4 @@ angular.module("pyp.firebase_interactions", [])
         this.getUserPosition = function () {
             return newPosition;
         }
-
     })

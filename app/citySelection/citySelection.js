@@ -45,38 +45,11 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase', 'ngMap'])
         FirebaseService.setUserLocation(e.latLng.lng(), e.latLng.lat());
     }
 
-    $scope.currentPosition = FirebaseService.getUserPosition();
+    var lat = FirebaseService.getUserLat();
+    var long = FirebaseService.getUserLong();
 
-    //Set the centre point for city selection map
-    $scope.centerPosition = "[54.596751, -5.930031]";
-    //    console.log('Center position: ', $scope.centerPosition);
+    $scope.currentPosition = lat + ', ' + long;
 
-    //    var options = {
-    //        enableHighAccuracy: true
-    //    };
-
-    //    navigator.geolocation.getCurrentPosition(function (pos) {
-    //            $scope.long = pos.coords.longitude;
-    //            $scope.lat = pos.coords.latitude;
-    //            //            $scope.currentPosition = '[' + $scope.lat + ', ' + $scope.long + ']';
-    //            $scope.currentPosition = new google.maps.LatLng($scope.lat, $scope.long);
-    //            console.log('Current position: ', $scope.currentPosition);
-    //
-    //            angular.forEach($scope.currentPosition, function (item, key) {
-    //                console.log('Position: ', item);
-    //            });
-    //
-    //        },
-    //        function (error) {
-    //            alert('Unable to get location: ' + error.message);
-    //        }, options);
-
-
-
-
-
-
-
-
+    FirebaseService.setUserLocation(long, lat);
 
 }]);

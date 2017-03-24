@@ -14,10 +14,7 @@ install:
   - sudo apt-get install -q google-chrome-stable
 
 before_script:
-  - npm install
-  - npm install selenium-standalone
-  - npm start webdriver-manager --standalone
-  - npm start selenium-standalone
+  - npm run update-webdriver
   - sleep 5
 
 script:
