@@ -13,7 +13,11 @@
             <h1>Drag marker to current location</h1>
             <map zoom="14" center="{{centerPosition}}" style="height:90%">
 
-                <marker position="{{centerPosition}}" draggable="true" on-dragend="logLatLng()"></marker>
+                <!--                <marker position="{{centerPosition}}" draggable="true" on-dragend="logLatLng()"></marker>-->
+
+                <marker position="{{currentPosition}}" draggable="true" on-dragend="logLatLng()"></marker>
+
+
 
             </map>
 

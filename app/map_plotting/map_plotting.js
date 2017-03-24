@@ -111,7 +111,6 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
 
     $scope.dressCodeOptions = PreferenceGenerator.getDressPreferences();
 
-
     $scope.userDisplayName = user.displayName;
     console.log('userId', userId);
 
