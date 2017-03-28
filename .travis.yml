@@ -16,6 +16,7 @@ install:
 before_script:
 #  - npm run update-webdriver
 #  - npm webdriver-manager start --standalone
+  - npm install
 
 
   - sleep 5
