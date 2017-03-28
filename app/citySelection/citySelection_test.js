@@ -1,12 +1,12 @@
 'use strict';
 
-describe('myApp.view2 module', function () {
+describe('City Selection module', function () {
 
     beforeEach(module('pyp.citySelection'));
 
     describe('City selection controller', function () {
 
-        it('DUMMY TEST', inject(function ($controller) {
+        it('should be defined', inject(function () {
             //spec body
             var test = "test";
             expect(test).toBeDefined();
