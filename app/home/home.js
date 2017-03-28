@@ -26,15 +26,12 @@ angular.module('pyp.home', ['ngRoute', 'firebase'])
     navigator.geolocation.getCurrentPosition(function (pos) {
             $scope.long = pos.coords.longitude;
             $scope.lat = pos.coords.latitude;
-            $scope.currentPosition = '[' + $scope.lat + ', ' + $scope.long + ']';
             FirebaseService.setUserLat($scope.lat);
             FirebaseService.setUserLong($scope.long);
 
 
         },
-        function (error) {
-            alert('Unable to get location: ' + error.message);
-        }, options);
+        function (error) {}, options);
 
 
 }]);

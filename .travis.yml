@@ -14,8 +14,8 @@ install:
   - sudo apt-get install -q google-chrome-stable
 
 before_script:
-  - npm run update-webdriver
-  - npm webdriver-manager start --standalone
+#  - npm run update-webdriver
+#  - npm webdriver-manager start --standalone
 
 
   - sleep 5

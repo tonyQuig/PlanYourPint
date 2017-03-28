@@ -41,15 +41,24 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase', 'ngMap'])
 
     ];
 
+
+
     $scope.logLatLng = function (e) {
         FirebaseService.setUserLocation(e.latLng.lng(), e.latLng.lat());
     }
 
     var lat = FirebaseService.getUserLat();
     var long = FirebaseService.getUserLong();
+    console.log("Lat and long before if: ", lat + long);
 
-    $scope.currentPosition = lat + ', ' + long;
+    if (lat && long) {
+        console.log("lat & long: ", lat + long);
+        $scope.currentPosition = lat + ', ' + long;
+        FirebaseService.setUserLocation(long, lat);
+    } else {
+        $scope.currentPosition = "[54.597335, -5.930128]";
+    }
 
-    FirebaseService.setUserLocation(long, lat);
+
 
 }]);
