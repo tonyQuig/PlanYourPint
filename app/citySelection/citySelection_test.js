@@ -9,7 +9,7 @@ describe('City Selection module', function () {
         it('should be defined', inject(function () {
             //spec body
             var test = "test";
-            expect(test).toBeDefined();
+            expect(test).toEqual("test");
         }));
 
     });

@@ -9,13 +9,14 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
     });
 }])
 
-.controller('MapPlottingCtrl', ['$scope', 'NgMap', 'FirebaseService', 'PreferenceGenerator', function ($scope, NgMap, FirebaseService, PreferenceGenerator) {
+.controller('MapPlottingCtrl', ['$scope', 'NgMap', 'FirebaseService', 'PreferenceGenerator', '$rootScope', function ($scope, NgMap, FirebaseService, PreferenceGenerator, $rootScope) {
 
     var user = firebase.auth().currentUser;
     var userId = firebase.auth().currentUser.uid;
 
     $scope.showPreferences = false;
     $scope.recalculateButton = false;
+    $scope.selectedBarNames = [];
 
     $scope.editButtonClick = function () {
         if ($scope.showPreferences == true) {
@@ -64,18 +65,14 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
     $scope.recalculateDirections = function () {
 
         $scope.wayPoints = [];
-        //        $scope.originLocation = [];
         FirebaseService.emptybarArray();
         FirebaseService.emptyBarDetails();
-
-        console.log('waypoints on recalculate click: ', $scope.wayPoints);
+        selectedBarNames();
 
         getPreferenceTotal();
         FirebaseService.getBarInfo();
 
         $scope.wayPoints = FirebaseService.getLocations();
-
-        console.log('waypoints waypoints fater getting new locations: ', $scope.wayPoints);
 
         console.log("RECALCULATED WAYPOINTS: ", $scope.wayPoints);
 
@@ -122,11 +119,11 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
 
     //    FirebaseService.emptySelectedBarNameArray();
     $scope.selectedBarNames = FirebaseService.getSelectedBarNameArray();
-    //    selectedBarNames();
 
-    //    function selectedBarNames() {
-    //        $scope.selectedBarNames = FirebaseService.getSelectedBarNameArray();
-    //    }
+    function selectedBarNames() {
+        $scope.selectedBarNames.length = 0;
+        $scope.selectedBarNames = FirebaseService.getSelectedBarNameArray();
+    }
 
     $scope.confirmPlan = function () {
         FirebaseService.savePlan(userId, $scope.originLocation, $scope.wayPoints, FirebaseService.getBarDetails());
