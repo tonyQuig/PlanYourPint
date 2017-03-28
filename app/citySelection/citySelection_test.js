@@ -2,7 +2,7 @@
 
 describe('City Selection module', function () {
 
-    beforeEach(module('pyp.citySelection'));
+    beforeEach(module('pyp.citySelection', [['ngRoute', 'firebase', 'ngMap']]));
 
     describe('City selection controller', function () {
 
