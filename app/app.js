@@ -11,6 +11,7 @@ angular.module('pyp', [
     'pyp.firebase_interactions',
     'pyp.user_profile',
     'pyp.preference_generator_service',
+    'pyp.rating',
 ])
     .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
 

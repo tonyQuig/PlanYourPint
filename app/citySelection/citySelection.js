@@ -41,8 +41,6 @@ angular.module('pyp.citySelection', ['ngRoute', 'firebase', 'ngMap'])
 
     ];
 
-
-
     $scope.logLatLng = function (e) {
         FirebaseService.setUserLocation(e.latLng.lng(), e.latLng.lat());
     }
