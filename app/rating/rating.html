@@ -1,4 +1,59 @@
-<h3>With cusomt style</h3>
-<jk-rating-stars class="my-custom-stars" rating="secondRate">
-</jk-rating-stars>
-<h3>{{secondRate}}</h3>
+<div class="content-container rating-content">
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron">
+                <h1>Rate Your Night Below!</h1>
+                <p>We hope you enjoyed your night! Now please tell us what you thought of the bars that where selected for you..</p>
+            </div>
+
+            <div class="card col-xs-6 col-sm-4 padding curvedEdges center-text" ng-repeat="barName in selectedBars">
+                <!--                <div class="card-block">-->
+                <h4 class="card-title">{{barName.barInformation.name}}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Price</h6>
+                <p class="lead">
+                    <a class="btn btn-success btn-md" role="button">YES</a>
+                    <a class="btn btn-danger btn-md" role="button">NO</a>
+                </p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+                <h6 class="card-subtitle mb-2 text-muted">Food Options</h6>
+                <p class="lead">
+                    <a class="btn btn-success btn-md" role="button">YES</a>
+                    <a class="btn btn-danger btn-md" role="button">NO</a>
+                </p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+                <h6 class="card-subtitle mb-2 text-muted">Drink Type</h6>
+                <p class="lead">
+                    <a class="btn btn-success btn-md" role="button">YES</a>
+                    <a class="btn btn-danger btn-md" role="button">NO</a>
+                </p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+                <h6 class="card-subtitle mb-2 text-muted">Atmosphere</h6>
+                <p class="lead">
+                    <a class="btn btn-success btn-md" role="button">YES</a>
+                    <a class="btn btn-danger btn-md" role="button">NO</a>
+                </p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+                <h6 class="card-subtitle mb-2 text-muted">Age Range</h6>
+                <p class="lead">
+                    <a class="btn btn-success btn-md" role="button">YES</a>
+                    <a class="btn btn-danger btn-md" role="button">NO</a>
+                </p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+                <h6 class="card-subtitle mb-2 text-muted">Dress Code</h6>
+                <p class="lead">
+                    <a class="btn btn-success btn-md" role="button">YES</a>
+                    <a class="btn btn-danger btn-md" role="button">NO</a>
+                </p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+            <!--                </div>-->
+        </div>
+    </div>
+</div>
+</div>

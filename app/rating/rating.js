@@ -11,11 +11,8 @@ angular.module('pyp.rating', ['ngRoute', 'firebase', 'jkAngularRatingStars'])
 
 .controller('RatingCtrl', ['$scope', 'FirebaseService', function ($scope, FirebaseService) {
 
-    $scope.firstRate = 0;
-    $scope.secondRate = 3;
-    $scope.readOnly = true;
-    $scope.onItemRating = function (rating) {
-        alert('On Rating: ' + rating);
-    };
+    $scope.selectedBars = FirebaseService.getBarDetails();
+    console.log('Selected bars: ', $scope.selectedBars);
 
+    console.log('$scope.barName: ', $scope.barName);
 }]);
