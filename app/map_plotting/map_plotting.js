@@ -125,8 +125,10 @@ angular.module('pyp.mapPlotting', ['ngRoute', 'firebase', 'ngMap'])
         $scope.selectedBarNames = FirebaseService.getSelectedBarNameArray();
     }
 
+    var date = new Date();
+
     $scope.confirmPlan = function () {
-        FirebaseService.savePlan(userId, $scope.originLocation, $scope.wayPoints, FirebaseService.getBarDetails());
+        FirebaseService.savePlan(userId, $scope.originLocation, $scope.wayPoints, FirebaseService.getBarDetails(), String(date));
     }
 
 }]);

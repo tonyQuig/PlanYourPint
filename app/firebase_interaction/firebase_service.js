@@ -190,16 +190,17 @@ angular.module("pyp.firebase_interactions", [])
             preferenceName.push(price, food, drinkType, atmosphere, ageRange, dressCode);
         }
 
-        this.savePlan = function (userId, originLocation, wayPoints, barInformation) {
+        this.savePlan = function (userId, originLocation, wayPoints, barInformation, date) {
             console.log('Origin location: ', originLocation);
             console.log('Selected bar waypoints: ', wayPoints);
             console.log('Bar Information: ', barInformation);
 
             //UNCOMMENT IN PRODUCTION
-            //            database.ref('userPlans/' + userId).set({
-            //                origin: originLocation,
-            //                locations: wayPoints
-            //            });
+            database.ref('userPlans/' + userId).set({
+                dateCreated: date,
+                origin: originLocation,
+                locations: wayPoints
+            });
         }
 
         var newPosition = "";
