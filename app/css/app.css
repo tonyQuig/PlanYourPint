@@ -190,3 +190,12 @@ body {
 .my-custom-stars .star-button.star-off .material-icons {
     color: #99ccff;
 }
+
+.material-icons {
+    color: black;
+}
+
+.ratingText h1 {
+    font-size: 50px;
+    color: white;
+}

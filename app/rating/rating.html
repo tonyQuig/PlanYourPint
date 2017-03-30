@@ -1,58 +1,60 @@
 <div class="content-container rating-content">
     <div class="container">
-        <div class="row">
-            <div class="jumbotron">
+        <div class="row fadedBackground">
+            <div class="space-all-around ratingText">
                 <h1>Rate Your Night Below!</h1>
                 <p>We hope you enjoyed your night! Now please tell us what you thought of the bars that where selected for you..</p>
             </div>
 
             <div class="card col-xs-6 col-sm-4 padding curvedEdges center-text" ng-repeat="barName in selectedBars">
-                <!--                <div class="card-block">-->
                 <h4 class="card-title fadedBackground space-all-around">{{barName.barInformation.name}}</h4>
                 <h6 class="card-subtitle mb-2 text-muted">Price</h6>
                 <p class="lead">
-                    <a class="btn btn-success btn-md" role="button">YES</a>
-                    <a class="btn btn-danger btn-md" role="button">NO</a>
+                    <jk-rating-stars class="my-custom-stars" rating="priceRating" on-rating="onPriceRating(rating, barName.barInformation.name)">
+                    </jk-rating-stars>
+                    <h3>{{priceRating}}</h3>
                 </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+
                 <h6 class="card-subtitle mb-2 text-muted">Food Options</h6>
                 <p class="lead">
-                    <a class="btn btn-success btn-md" role="button">YES</a>
-                    <a class="btn btn-danger btn-md" role="button">NO</a>
+                    <jk-rating-stars class="my-custom-stars" rating="foodRating" on-rating="onFoodRating(rating, barName.barInformation.name)">
+                    </jk-rating-stars>
+                    <h3>{{foodRating}}</h3>
                 </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+
                 <h6 class="card-subtitle mb-2 text-muted">Drink Type</h6>
                 <p class="lead">
-                    <a class="btn btn-success btn-md" role="button">YES</a>
-                    <a class="btn btn-danger btn-md" role="button">NO</a>
+                    <jk-rating-stars class="my-custom-stars" rating="drinkRating" on-rating="onDrinkRating(rating, barName.barInformation.name)">
+                    </jk-rating-stars>
+                    <h3>{{drinkRating}}</h3>
                 </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+
                 <h6 class="card-subtitle mb-2 text-muted">Atmosphere</h6>
                 <p class="lead">
-                    <a class="btn btn-success btn-md" role="button">YES</a>
-                    <a class="btn btn-danger btn-md" role="button">NO</a>
+                    <jk-rating-stars class="my-custom-stars" rating="atmosphereRating" on-rating="onAtmosphereRating(rating, barName.barInformation.name)">
+                    </jk-rating-stars>
+                    <h3>{{atmosphereRating}}</h3>
                 </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+
                 <h6 class="card-subtitle mb-2 text-muted">Age Range</h6>
                 <p class="lead">
-                    <a class="btn btn-success btn-md" role="button">YES</a>
-                    <a class="btn btn-danger btn-md" role="button">NO</a>
+                    <jk-rating-stars class="my-custom-stars" rating="ageRating" on-rating="onAgeRating(rating, barName.barInformation.name)">
+                    </jk-rating-stars>
+                    <h3>{{ageRating}}</h3>
                 </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+
                 <h6 class="card-subtitle mb-2 text-muted">Dress Code</h6>
                 <p class="lead">
-                    <a class="btn btn-success btn-md" role="button">YES</a>
-                    <a class="btn btn-danger btn-md" role="button">NO</a>
+                    <jk-rating-stars class="my-custom-stars" rating="dressRating" on-rating="onDressRating(rating, barName.barInformation.name)">
+                    </jk-rating-stars>
+                    <h3>{{dressRating}}</h3>
                 </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+
             </div>
-            <!--                </div>-->
+
+        </div>
+        <div class="row center-text space-all-around fadedBackground">
+            <a class="btn btn-outline btn-xl page-scroll">Confirm Ratings</a>
         </div>
     </div>
 </div>
