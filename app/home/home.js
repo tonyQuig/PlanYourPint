@@ -28,10 +28,7 @@ angular.module('pyp.home', ['ngRoute', 'firebase'])
             $scope.lat = pos.coords.latitude;
             FirebaseService.setUserLat($scope.lat);
             FirebaseService.setUserLong($scope.long);
-
-
         },
         function (error) {}, options);
-
 
 }]);

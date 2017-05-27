@@ -191,11 +191,7 @@ angular.module("pyp.firebase_interactions", [])
         }
 
         this.savePlan = function (userId, originLocation, wayPoints, barInformation, date) {
-            console.log('Origin location: ', originLocation);
-            console.log('Selected bar waypoints: ', wayPoints);
-            console.log('Bar Information: ', barInformation);
 
-            //UNCOMMENT IN PRODUCTION
             database.ref('userPlans/' + userId).set({
                 dateCreated: date,
                 origin: originLocation,

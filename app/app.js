@@ -12,6 +12,7 @@ angular.module('pyp', [
     'pyp.user_profile',
     'pyp.preference_generator_service',
     'pyp.rating',
+    'pyp.ratingConfirmation',
 ])
     .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
 

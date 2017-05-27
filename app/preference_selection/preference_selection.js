@@ -14,7 +14,6 @@ angular.module('pyp.preferenceSelection', ['ngRoute', 'firebase'])
     $scope.noMatchesFound = false;
 
     $scope.onPriceChange = function () {
-        console.log("Price change: ", $scope.price.name);
         preferenceContinueButton();
     }
 

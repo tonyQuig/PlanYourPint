@@ -17,17 +17,9 @@ its package manager (npm) installed.  You can get them from [http://nodejs.org/]
 Clone the Plan Your Pint repository using [git][git]:
 
 ```
-git clone https://github.com/angular/Plan Your Pint.git
+git clone https://github.com/tonyQuig/PlanYourPint
 cd Plan Your Pint
 ```
-
-If you just want to start a new project without the Plan Your Pint commit history then you can do:
-
-```bash
-git clone --depth=1 https://github.com/angular/Plan Your Pint.git <your-project-name>
-```
-
-The `depth=1` tells git to only pull down one commit worth of historical data.
 
 ### Install Dependencies
 
@@ -62,7 +54,7 @@ this server is:
 npm start
 ```
 
-Now browse to the app at `http://localhost:8000/index.html`.
+Now browse to the app at `http://localhost:8000
 
 
 

@@ -47,18 +47,36 @@ body {
     background: url("../images/sign_in_crowded_bar.jpg");
     background: url("../images/sign_in_crowded_bar.jpg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
     background: url("../images/sign_in_crowded_bar.jpg"), linear-gradient(to left, #4d88ff, #00b38f);
+    position: fixed;
+    height: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
 }
 
 .citySelection-content {
     background: url("../images/city_selection_map_overview.jpeg");
     background: url("../images/city_selection_map_overview.jpeg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
     background: url("../images/city_selection_map_overview.jpeg"), linear-gradient(to left, #4d88ff, #00b38f);
+    position: fixed;
+    height: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
 }
 
 .preferenceSelection-content {
     background: url("../images/preference_selection_drink_options.jpeg");
     background: url("../images/preference_selection_drink_options.jpeg"), -webkit-linear-gradient(to left, #4d88ff, #00b38f);
     background: url("../images/preference_selection_drink_options.jpeg"), linear-gradient(to left, #4d88ff, #00b38f);
+    position: fixed;
+    height: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
 }
 
 .mapPlotting-content {
@@ -79,13 +97,12 @@ body {
 
 .user-profile {
     background: url("../images/user_profile_drink_range.jpeg"), no-repeat center center fixed;
-    min-height: 100%;
-    width: 100%;
-    height: auto;
     position: fixed;
+    height: auto;
     top: 0;
     left: 0;
-    color: black;
+    width: 100%;
+    min-height: 100%;
 }
 
 #directions-panel {
